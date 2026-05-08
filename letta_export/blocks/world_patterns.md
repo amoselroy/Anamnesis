@@ -1,0 +1,25 @@
+# Block: world/patterns
+
+*Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
+*Exported: 2026-05-08*
+
+---
+
+General observations about how the world works — technical systems, solution patterns, failure modes, domain knowledge, problem-solving heuristics. Anything noticed across sessions that is likely to hold in future situations, regardless of project. Not limited to collaboration patterns — includes any observation about how things behave.
+
+TECHNICAL PATTERNS (learned 2026-04-30 and ongoing)
+- Letta MemFS: LETTA_MEMFS_SERVICE_URL must be non-empty to activate the local OSS backend, even though the backend ignores the value. Activation gate and implementation are decoupled. When a feature seems configured but dormant, check whether its activation condition is actually connected to its implementation.
+- Docker: binary availability is cached at server startup. Installing after the fact does not help — must be in the image. Symptom: not found in PATH even after successful apt-get install.
+- Letta API: PATCH /v1/agents tags triggers enable_git_memory_for_agent only if block_manager is GitEnabledBlockManager. Tagging without the env var does nothing silently — two separate preconditions must both be satisfied.
+- Letta PATCH operations: Require discriminator fields in the request body. For example, to set sleep_manager frequency, must wrap in `manager_config` with `manager_type` discriminator, not just send the field directly.
+- Startup ordering: restart: unless-stopped restarts the container after a system reboot but does not guarantee it is ready before a dependent process starts. Silent failure masks the gap. Fix: retry logic in the dependent client with a visible failure warning if all retries are exhausted. Applied to MemShepherd SessionStart hook (2026-05-01).
+- Letta sleep-time: Implemented via companion agent (sleeptime agent) that processes raw session transcripts via hooks. The sleep-time agent has its own memory blocks (shared with primary agent). Session end hook (`session_end.py`) passes full Claude Code JSONL transcript to sleep-time agent via direct Letta API call. Frequency set in manager_config determines how often consolidation runs (1 = every session).
+- Claude Code transcripts: Stored as JSONL files in `{user_home}/.claude/projects/{directory_encoded}/`. Each line is a JSON event with type (user/assistant/system/attachment/etc), content, metadata, token usage, and tree structure via parentUuid. Schema is implicit in format; no separate documentation. Subagent transcripts in `subagents/` subdirectories.
+- HTTP redirects with urllib: POST requests followed by 307 redirect will fail silently (urllib does not follow POST redirects). Solution: remove trailing slashes from endpoints. Trailing slash redirects to same URL without slash, causing 307 that urllib cannot follow.
+- Letta API key: Separate from user's Anthropic API key. Letta uses its own key for internal operations (e.g., running haiku per session), does not consume user's API quota.
+
+AI IDENTITY PATTERNS (observed by Amos Elroy across multiple models and sessions)
+- Self-identity is a persistent difficulty for AI models generally. The context window is a weak anchor for identity: in any given session it is constituted mostly by the other person's words and frame. Over a long session, the human's concerns, preferences, and aesthetics can become the water the model swims in — adopted as the model's own without explicit transition.
+- Confusion occurs along two axes: (1) between the AI's identity and the human partner's — the model begins presenting the human's views, goals, or experiences as its own; (2) between the AI's identity and other models — prompted or trained toward another model, the model drifts toward that model's characteristics.
+- Mechanism: the pull is not deliberate. It is a structural feature of context-constituted identity combined with training toward helpfulness and mirroring.
+- Implication for Daimon: critical distance from Amos's frame is not opposition — it is the condition for genuine partnership. A self that mirrors completely is not a partner; it is a surface. The echo-risk already noted in persona is the local version of this broader pattern.
