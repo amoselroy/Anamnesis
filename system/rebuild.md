@@ -195,9 +195,10 @@ Copy these files from the repo's `hooks/` directory to `~/.claude/memshepherd/ho
 - `context_watch.py` — monitors context window usage after each tool call
 - `archival_insert.py` — direct archival memory insert (no LLM loop)
 - `archival_search.py` — direct archival memory search
-- `update_persona.py` — utility to patch the persona block directly
+- `update_persona.py` — appends text to the persona block (pass new content as argument)
+- `update_world.py` — appends text to the world/patterns block (pass new content as argument)
 
-**⚠️ `update_world.py` — DO NOT RUN without reading first.** This script has hardcoded content that will overwrite the enriched `world/patterns` block with an old snapshot. Copy the file but treat it as a template to update, not a script to run as-is.
+Both are safe append-only tools: they read the current block value from Letta before writing, so they can never overwrite existing content. Usage: `python update_world.py "new pattern to record"`
 
 ### 7.3 Copy session_sync.py (personal hook, not in public repo)
 
