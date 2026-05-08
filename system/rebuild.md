@@ -250,6 +250,18 @@ python "C:/Users/<username>/.claude/memshepherd/hooks/session_start.py"
 
 Expected: JSON output with `hookEventName: "SessionStart"` and full memory context (HUMAN, PERSONA, PATTERNS blocks).
 
+### 9.1b Verify container has correct API keys
+
+**Important:** Docker's `--restart unless-stopped` perpetuates the exact env vars the container was *created* with. If the container was ever started before the env vars were set (or after a reboot with a stale container), the keys inside will be empty. Verify:
+
+```bash
+docker inspect memshepherd-letta --format "{{range .Config.Env}}{{println .}}{{end}}" | grep -E "ANTHROPIC|OPENAI"
+```
+
+Expected: both lines show non-empty values (not `ANTHROPIC_API_KEY=`).
+
+If either is empty: stop, remove, and re-run the container using the Part 6 command to recreate it with fresh keys from the registry.
+
 ### 9.2 Test vector search (get password from Neon dashboard)
 
 ```bash
