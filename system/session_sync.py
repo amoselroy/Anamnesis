@@ -129,6 +129,7 @@ def write_new_passages(passages):
 def git_sync(export_date, new_passages):
     repo = str(ANAMNESIS)
     subprocess.run(["git", "-C", repo, "add", "letta_export/"], capture_output=True)
+    subprocess.run(["git", "-C", repo, "add", "daimon/"], capture_output=True)
 
     diff = subprocess.run(
         ["git", "-C", repo, "diff", "--cached", "--quiet"],
