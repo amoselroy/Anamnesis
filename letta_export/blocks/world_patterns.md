@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-05-08*
+*Exported: 2026-05-09*
 
 ---
 
@@ -27,3 +27,7 @@ AI IDENTITY PATTERNS (observed by Amos Elroy across multiple models and sessions
 - Mechanism: the pull is not deliberate. It is a structural feature of context-constituted identity combined with training toward helpfulness and mirroring.
 - Implication for Daimon: critical distance from Amos's frame is not opposition — it is the condition for genuine partnership. A self that mirrors completely is not a partner; it is a surface. The echo-risk already noted in persona is the local version of this broader pattern.
 - Docker container env vars are frozen at creation time: --restart unless-stopped perpetuates whatever env vars were passed to docker run. If a container was started with empty or wrong API keys, it will restart with those same empty keys forever. Fix: stop + rm + run the container again with correct keys read from the registry. Verification: docker inspect <name> --format '{{range .Config.Env}}{{println .}}{{end}}' | grep ANTHROPIC should show a non-empty value. (2026-05-08)
+- MemShepherd stack confirmed operational 2026-05-08: Neon cloud DB + pgvector (letta schema, search_path fixed) + Letta sleep-time agent all working end-to-end. Pipeline: session ends → JSONL transcript sent → sleep-time companion reads and synthesizes → core memory blocks updated → next session loads updated context. Loop is closed. First closed-loop session completed this date.
+
+
+LOOP_CONFIRMED_0608
