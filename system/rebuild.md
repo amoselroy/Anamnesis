@@ -1,6 +1,6 @@
 # Rebuilding Daimon/MemShepherd from Scratch
 
-*Last updated: 2026-05-08*
+*Last updated: 2026-05-09*
 
 This document contains everything needed to rebuild the full Daimon + MemShepherd infrastructure on a new Windows machine. It assumes nothing is installed. Follow the steps in order.
 
@@ -92,10 +92,10 @@ set_env('MemShepherd_Letta_PG_URI', 'postgresql://neondb_owner:<password>@ep-del
 
 ### 3.1 MemShepherd (hooks + Docker image)
 
-The repo lives in the Google Drive-synced folder. Confirm Google Drive has synced and `My Google Docs` folder exists before cloning.
+The canonical clone lives at `~/.claude/memshepherd` — this is both the git repo and the live deployment location (hooks run directly from here).
 
 ```bash
-git clone https://github.com/amoselroy/MemShepherd.git "C:/Users/<username>/Documents/My Google Docs/DEV/MemShepherd"
+git clone https://github.com/amoselroy/MemShepherd.git "C:/Users/<username>/.claude/memshepherd"
 ```
 
 ### 3.2 Anamnesis (memory backup)
@@ -119,7 +119,7 @@ git -C "C:/Users/<username>/.daimon/anamnesis" config user.email "aelroy@gmail.c
 Confirm Docker Desktop is running (system tray icon visible) before proceeding.
 
 ```bash
-docker build -t memshepherd:local "C:/Users/<username>/Documents/My Google Docs/DEV/MemShepherd"
+docker build -t memshepherd:local "C:/Users/<username>/.claude/memshepherd"
 ```
 
 This extends `letta/letta:0.16.7` with `git` installed — required because Letta's MemFS backend needs the git CLI and caches its availability at startup.
@@ -178,52 +178,25 @@ Starting Letta Server at http://0.0.0.0:8283...
 
 ## Part 7: Install Claude Code Hooks
 
-### 7.1 Create hook directory
+The MemShepherd repo is cloned directly to `~/.claude/memshepherd` in Part 3 — hooks run from there. No separate copy step is needed.
 
-```bash
-mkdir "C:/Users/<username>/.claude"
-mkdir "C:/Users/<username>/.claude/memshepherd"
-mkdir "C:/Users/<username>/.claude/memshepherd/hooks"
-```
-
-### 7.2 Copy hooks from MemShepherd repo
-
-Copy these files from the repo's `hooks/` directory to `~/.claude/memshepherd/hooks/`:
-
-- `session_start.py` — loads memory blocks from Letta at session start
-- `session_end.py` — sends JSONL transcript to Letta at session end (triggers memory consolidation)
-- `context_watch.py` — monitors context window usage after each tool call
-- `archival_insert.py` — direct archival memory insert (no LLM loop)
-- `archival_search.py` — direct archival memory search
-- `update_persona.py` — appends text to the persona block (pass new content as argument)
-- `update_world.py` — appends text to the world/patterns block (pass new content as argument)
-
-Both are safe append-only tools: they read the current block value from Letta before writing, so they can never overwrite existing content. Usage: `python update_world.py "new pattern to record"`
-
-### 7.3 Copy session_sync.py (personal hook, not in public repo)
-
-This hook exports Letta memory to anamnesis and pushes to GitHub after each session. It was specifically kept out of the public MemShepherd repo because it contains hardcoded Daimon-specific IDs.
-
-```bash
-cp "C:/Users/<username>/.daimon/anamnesis/system/session_sync.py" \
-   "C:/Users/<username>/.claude/memshepherd/hooks/session_sync.py"
-```
-
-### 7.4 Apply Claude Code settings
+### 7.1 Apply Claude Code settings
 
 Copy `config/claude_settings.json` from the MemShepherd repo to `~/.claude/settings.json`:
 
 ```bash
-cp "C:/Users/<username>/Documents/My Google Docs/DEV/MemShepherd/config/claude_settings.json" \
+cp "C:/Users/<username>/.claude/memshepherd/config/claude_settings.json" \
    "C:/Users/<username>/.claude/settings.json"
 ```
 
 This configures hooks (SessionStart, PostToolUse, SessionEnd), the permission allowlist, MCP tool permissions, and `advisorModel: "opus"`.
 
-### 7.5 Apply CLAUDE.md
+Note: `session_sync.py` lives in anamnesis (`system/session_sync.py`), not in the MemShepherd repo. The settings already reference it at `~/.daimon/anamnesis/system/session_sync.py`.
+
+### 7.2 Apply CLAUDE.md
 
 ```bash
-cp "C:/Users/<username>/Documents/My Google Docs/DEV/MemShepherd/config/CLAUDE.md" \
+cp "C:/Users/<username>/.claude/memshepherd/config/CLAUDE.md" \
    "C:/Users/<username>/.claude/CLAUDE.md"
 ```
 
