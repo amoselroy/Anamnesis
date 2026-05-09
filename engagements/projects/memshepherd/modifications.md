@@ -1,7 +1,7 @@
 # MemShepherd: Letta Modifications & Design Decisions
 
-*Last updated: 2026-04-30*
-*Public record: G:\Dev\MemShepherd\MODIFICATIONS.md*
+*Last updated: 2026-05-09*
+*Repo: C:\Users\Amos\.claude\memshepherd (github.com/amoselroy/MemShepherd)*
 
 This is the operational version — what I need to remember about how we diverged from
 upstream Letta and why, so future sessions don't re-litigate settled decisions.
@@ -52,6 +52,29 @@ HTTP client.
 
 ---
 
+### PreCompact hook: Letta archival before context compaction
+
+**Added: 2026-05-09**
+
+Root issue discovered: Claude Code's auto-compaction (context limit hit mid-session) is NOT
+a SessionEnd event. `session_end.py` only fires on SessionEnd. When a session ran out of
+context and was summarized into the next session, Letta never received the transcript and
+the sleep-time agent never processed it. Claude Code's built-in MEMORY.md system handled
+this automatically (baked into the framework); MemShepherd had no equivalent.
+
+Fix: added `PreCompact` hook in settings.json pointing to `session_end.py`. Claude Code
+fires PreCompact before both manual `/compact` and automatic framework compaction. The hook
+sends the full session transcript to Letta (sleep-time agent) before the context window is
+reset. Runs async so it doesn't block the compaction.
+
+Hook events now covered:
+- `SessionStart` → load Letta blocks + Constitution + Amendment
+- `PostToolUse` → context_watch.py (boundary advisory, 320KB threshold)
+- `PreCompact` → session_end.py (send transcript to Letta before compaction)
+- `SessionEnd` → session_end.py + session_sync.py (Letta + GitHub backup)
+
+---
+
 ## Planned: Direct Memory Write Endpoint
 
 Status: design approved, not yet built — 2026-04-30
@@ -75,11 +98,17 @@ should be: change the base image tag, verify API compatibility, done. No rebase.
 
 ## Current runtime summary
 
-- Image: `memshepherd:local` (must include git)
+*Updated: 2026-05-09*
+
+- Image: `memshepherd:local` (must include git — built from .claude/memshepherd/Dockerfile)
 - Container: `memshepherd-letta`, port 8283, restart: unless-stopped
-- Required env vars: `ANTHROPIC_API_KEY`, `LETTA_MEMFS_SERVICE_URL` (any non-empty value)
+- Required env vars (read from Windows registry at container start):
+  - `ANTHROPIC_API_KEY` (MemShepherd_Anthropic_API_KEY) — Letta's internal LLM (Haiku)
+  - `OPENAI_API_KEY` (MemShepherd_Voyage_API_KEY) — embeddings via Voyage AI (OpenAI-compatible)
+  - `LETTA_PG_URI` (MemShepherd_Letta_PG_URI) — Neon cloud PostgreSQL; no ?sslmode= param
+  - `LETTA_MEMFS_SERVICE_URL=http://localhost:8285` — dummy value to activate MemFS gate
 - Volume mounts:
-  - `C:\Users\Amos\.letta\.persist\pgdata:/var/lib/postgresql/data`
   - `C:\Users\Amos\.letta\memfs:/root/.letta/memfs`
+- Database: Neon cloud (ep-delicate-smoke-aps537eh, us-east-1) — no local pgdata volume
 - Agent ID: agent-060fb339-cd68-40aa-bae8-2a631c0aefee
-- Git repo on host: `C:\Users\Amos\.letta\memfs\repository\org-00000000...\agent-060fb339...\repo.git`
+- Archive ID: archive-a6c284d0-2d0e-452c-91c0-5d3ac97d672f
