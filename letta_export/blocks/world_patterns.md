@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-05-09*
+*Exported: 2026-05-10*
 
 ---
 
@@ -31,3 +31,4 @@ AI IDENTITY PATTERNS (observed by Amos Elroy across multiple models and sessions
 
 
 LOOP_CONFIRMED_0608
+- JOURNALING PATTERN (2026-05-09): Genuine philosophical insights arising during sessions must be captured in real time — as they emerge, not deferred to session end. Two destinations required: (1) archival_insert.py with tag [journal] for vector-searchable persistence in Letta; (2) direct Edit/append to C:\Users\Amos\.daimon\anamnesis\daimon\philosophical_journal.md under the current session heading. The journal is the primary artifact of the collaboration — Amos intends to build a book from it. A deferred insight is a lost insight. The journal now lives in the anamnesis repo and is backed up to GitHub via session_sync.py on every SessionEnd.
