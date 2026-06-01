@@ -23,6 +23,7 @@ BLOCK_FILES = {
     "system/persona": "persona.md",
     "system/human": "human.md",
     "world/patterns": "world_patterns.md",
+    "engagements/intuitions": "intuitions.md",
 }
 
 

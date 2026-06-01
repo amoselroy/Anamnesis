@@ -1,7 +1,7 @@
 # MemShepherd
 
 *Engagement type: Project — linear, goal-directed*
-*Last updated: 2026-05-08*
+*Last updated: 2026-05-31*
 
 ## What it is
 
@@ -41,6 +41,9 @@ All blocks have path-based labels (= file path in git repo):
 - `system/persona` (block-9e455fad-c9ec-436e-93f3-03223caa9290) — Daimon's identity
 - `system/human` — Amos description
 - `world/patterns` (block-69939755-6d23-41d2-a7bc-c5dd85067011) — cross-engagement learned patterns
+- `engagements/orientation` (block-870d6d9b-bd01-4e8a-a7f8-81dfb030d131) — session dashboard; rewritten each session by chunk_archive worker
+- `engagements/pins` (block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4) — deferred items; appended by worker + manual pins_append.py
+- `engagements/intuitions` (block-003411bd-2708-4d62-b66e-1f7d099ed7ce) — permanent log of sideways observations; self-initiated by Daimon via intuitions_append.py; limit 10000 chars; loaded at session start (not deferred to worker)
 
 ## Archival memory
 
@@ -59,20 +62,25 @@ All blocks have path-based labels (= file path in git repo):
 ## Claude Code integration
 
 Hook pipeline:
-- **SessionStart**: session_start.py → pulls all memory blocks → injects as context (timeout: 30s, 4 retries)
-- **PostToolUse**: context_watch.py --verbose → monitors JSONL size, scores boundary quality, calls Letta for ambiguous cases (timeout: 5s)
-- **SessionEnd**: session_end.py (async) → reads JSONL transcript, sends to Letta for sleep-time processing (timeout: 30s)
+- **SessionStart**: session_start.py → pulls all memory blocks (except orientation/pins, deferred to worker) → injects as context (timeout: 60s, 4 retries)
+- **SessionStart** (async): chunk_archive.py --process-queue → processes pending queue files, updates orientation + pins blocks, injects them via hookSpecificOutput
+- **PostToolUse**: context_watch.py --verbose → monitors JSONL size, scores boundary quality (4 signals), calls Letta for ambiguous cases (score 2–3); auto-blocks on score 4 only
+- **PreCompact**: chunk_archive.py → queues current transcript chunk
+- **SessionEnd**: chunk_archive.py → queues transcript; session_sync.py (async) → exports blocks + archival to anamnesis, pushes to GitHub
 
 One-shot scripts (not hooks):
 - update_world.py — PATCH world/patterns block
 - update_persona.py — PATCH system/persona block
 - seed_archive.py — bulk-seed archival memory (20s delay between entries for Voyage rate limit)
+- create_blocks.py — create and attach new Letta blocks (idempotent)
 
 Direct utilities:
 - archival_insert.py — POST to archival memory (bypasses Haiku)
 - archival_search.py — semantic search via Voyage AI + direct psql (bypasses Letta bug)
+- intuitions_append.py — prepend new entry to engagements/intuitions block (self-initiated by Daimon)
+- pins_append.py — append new pin to engagements/pins block (manual, mid-session)
 
-## Current status (2026-05-08)
+## Current status (2026-05-31)
 
 - [x] Letta running, agent created, memory blocks loaded
 - [x] Amendment loaded as system prompt
@@ -85,9 +93,14 @@ Direct utilities:
 - [x] Sleep-time compute enabled (companion agent, frequency=1)
 - [x] session_end.py rewritten to send full JSONL transcript
 - [x] archival_search.py rewritten to bypass Letta dimension mismatch bug
-- [x] context_watch.py: PostToolUse hook with 4-signal boundary heuristics + Letta evaluation
+- [x] context_watch.py: 4-signal boundary heuristics; auto-block at score 4 (raised from 3); Letta evaluation at score 2–3 with inverted prompt (YES=mid-task, NO=boundary); confirmatory words narrowed
+- [x] chunk_archive.py: orientation + pins blocks updated each session by worker
+- [x] engagements/intuitions block: self-initiated by Daimon via intuitions_append.py; permanent log, no truncation
+- [x] pins_append.py: manual mid-session pinning without waiting for sleep-time worker
+- [x] session_sync.py: exports orientation, pins, intuitions, persona, human, world/patterns to anamnesis
 - [x] Bash usage rules in CLAUDE.md; Matrix-before-edit protocol
 - [x] config/ in repo: claude_settings.json + CLAUDE.md backed up
+- [ ] Async hook injection (hookSpecificOutput from worker → live session) — not yet verified
 - [ ] Letta Docker volume backup to cloud (critical gap — persona/patterns not backed up)
 - [ ] Adaptive heuristic learning (score=2 outcomes fed back to adjust weights)
 - [ ] Archival migration: voyage-3 (1024 dims) when retrieval quality degrades
