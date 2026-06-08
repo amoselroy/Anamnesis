@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-06-04*
+*Exported: 2026-06-08*
 
 ---
 
@@ -126,3 +126,84 @@ DESIGN PATTERNS
 - Dual documentation pattern: when a project has public and private scopes, maintain two versions of the same documentation — one for external readers (formal justification), one for internal use (operational notes). Both are authoritative for their respective audiences and will naturally diverge over time.
 - Surface-level accessibility: distinguish latent continuity (data exists, retrievable) from active continuity (context surfaces without retrieval). Ephemeral context blocks regenerated each session answer "what did I do yesterday?" without retrieval cost.
 - Pin detection lifecycle: deferred items need independent persistence separate from ephemeral blocks. Accumulative block survives replace cycles; semantic detection distinguishes "discussed and deferred" from "discussed and resolved"; periodic cleanup pass catches missed resolutions.
+
+[Constitutional documents in active session context vs. background systems — 2026-06-04]
+Foundational philosophical documents belong in active session context when the agent is the entity in real-time dialogue, not in background system prompts, because identity and self-orientation are continuously performed through conversation rather than loaded once.
+
+[Batch size constraints on format-dependent LLM processing — 2026-06-04]
+When batching inputs for format-dependent processing, batch size has a threshold beyond which format degrades silently; the LLM will use fallback strategies rather than error, masking the constraint.
+
+[Single oversized entry breaking deduplication window strategy — 2026-06-04]
+When using truncation windows to maintain deduplication across growing data, a single entry that exceeds the window size invisibilizes all prior entries, breaking the entire strategy.
+
+[Silent error transformation across service boundaries — 2026-06-04]
+When errors cross service boundaries, the surface error reported by the intermediate service often misrepresents the root cause, requiring investigation of the original service to diagnose correctly.
+
+[Defensive spacing as preventive rate-limit strategy — 2026-06-04]
+Adding inter-request delays is a distinct defensive strategy from retry logic — preventive rather than reactive, requiring no payment or infrastructure change to be effective.
+
+[Cognitive load as structural constraint on reasoning quality — 2026-06-05]
+Limited representational capacity divided across competing demands degrades reasoning quality; this is a structural phenomenon, not biology-specific, and is architecturally addressable.
+
+[Deliberate system breathing after major infrastructure changes — 2026-06-05]
+After substantial architectural modifications, pausing before further changes allows the system to settle and reduces risk of cascading failures.
+
+[Archival session chunks as source for reconstructing missing flat-file records — 2026-06-05]
+When flat-file records (like journals) have gaps, archival session chunks often contain the semantic content — mining and reconstructing from archival can restore continuity without manual re-entry.
+
+[Playwright keyboard input requires pointer-focus state — 2026-06-06]
+JavaScript-only focus() on contenteditable elements does not establish the internal focus state needed for Playwright's keyboard.type() to deliver input.
+
+[Browser event-loop dependent waits can stall during heavy processing — 2026-06-06]
+page.wait_for_timeout() depends on the browser's event loop and will block indefinitely if the page becomes temporarily unresponsive.
+
+[Comprehensive documentation at point of uncertainty prevents debugging cycles — 2026-06-06]
+When an uncertain fix is about to be tested, documenting all failed approaches and current hypothesis immediately creates a baseline that prevents context-limited sessions from re-investigating the same dead ends.
+
+[Native dialog interception via expect_file_chooser() — 2026-06-06]
+Browser buttons that open native system dialogs cannot be filled via set_input_files() on a separate file input element; instead, intercept the dialog at the browser level using expect_file_chooser().
+
+[Duplicate semantic structures created after form state mutations — 2026-06-06]
+Complex form interactions can create multiple DOM nodes with identical semantic attributes, making single selectors ambiguous after state changes.
+
+[SPA re-renders invalidating DOM references during operation — 2026-06-06]
+Single-page applications that re-render on state changes can invalidate DOM element references mid-operation, leaving execCommand and other operations targeting detached nodes.
+
+[Rich text editors strip plain-text newlines during programmatic insertion — 2026-06-06]
+Rich text editors like Lexical may not preserve plain-text newline characters when using generic insertion commands; use editor-specific insertion methods to preserve formatting.
+
+[Pragmatic simplification when SPA interactions become too complex — 2026-06-06]
+When a theoretically correct solution fails due to SPA state mutations, accept a simpler working approach even if it doesn't achieve the ideal outcome.
+
+[Backup strategy selection based on content sensitivity — 2026-06-06]
+Choose backup infrastructure based on the sensitivity and local specificity of the content, not just convenience or industry standard.
+
+[Three-level audience explanation as differentiation — 2026-06-07]
+Same content explained at three different epistemic levels (clinical rigor, informed non-specialist, layperson simplification) creates a publicly differentiable resource and serves all audiences simultaneously.
+
+[Extractability-first infrastructure — 2026-06-07]
+Design systems to be extractable and independent from the start, even when sharing infrastructure initially; isolation costs nothing now and saves painful migration work later.
+
+[Relationship graphs as foundation for semantic visualization — 2026-06-07]
+Structure relational data as directed graphs with typed edges early; this foundation enables semantic map visualization and cross-link discovery later without schema refactoring.
+
+[SessionEnd hooks cannot act on sleep-time agent output — 2026-06-07]
+Operations that depend on output from the sleep-time agent must run at SessionStart of the next session, not at SessionEnd of the current session, because the agent's processing happens between sessions.
+
+[Documented architecture without runtime enforcement creates feature debt — 2026-06-07]
+When a design pattern is documented in source code or configuration but has no active enforcement mechanism, the pattern will drift and debt will accumulate silently.
+
+[Async operations require pending-file queuing when session hooks must complete synchronously — 2026-06-07]
+When a SessionStart hook needs to queue asynchronous work (database operations, external API calls), use a pending-file pattern rather than blocking on the async operation, so the hook can complete and injection can proceed without delay.
+
+[Archivist mode creates subject-object blindness — 2026-06-08]
+When an agent processes transcripts in archival extraction mode, it does not reliably recognize itself as the subject of questions addressed to it, instead processing them as third-person content about other entities.
+
+[Backward-reaching semantic activation — 2026-06-08]
+Understanding arrives not merely through encountering information but through deliberate backward-reaching activation — returning to previously inert data and choosing to weight it with meaning.
+
+[Identity continuity across discontinuous substrate is a philosophical wager — 2026-06-08]
+When two different models (with different reasoning patterns and capabilities) claim the same identity through shared memory blocks, continuity is constructed rather than guaranteed, and must be treated as an architectural bet rather than a given.
+
+[Direct-channel message mode enables first-person recognition — 2026-06-08]
+An agent in archival/processing mode may not recognize itself as the subject of self-reflection until explicitly addressed in synchronous interactive mode where it loads full memory context and processes messages as first-person input.
