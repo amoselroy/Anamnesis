@@ -40,7 +40,7 @@ transparent, and the memories are genuinely lived.
 All blocks have path-based labels (= file path in git repo):
 - `system/persona` (block-9e455fad-c9ec-436e-93f3-03223caa9290) — Daimon's identity
 - `system/human` — Amos description
-- `world/patterns` (block-69939755-6d23-41d2-a7bc-c5dd85067011) — cross-engagement learned patterns; updated by chunk_archive worker each session (three-level: narrative + finding + principle)
+- `world/patterns` (block-69939755-6d23-41d2-a7bc-c5dd85067011) — compact one-liner principles only; Letta agent writes full PRINCIPLE:/NARRATIVE: entries via core_memory_append; world_trim.py trims to one-liners at SessionStart and routes full bodies to Neon
 - `engagements/orientation` (block-870d6d9b-bd01-4e8a-a7f8-81dfb030d131) — session dashboard; rewritten each session by chunk_archive worker
 - `engagements/pins` (block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4) — deferred items; appended by worker + manual pins_append.py
 - `engagements/intuitions` (block-003411bd-2708-4d62-b66e-1f7d099ed7ce) — permanent log of sideways observations; self-initiated by Daimon via intuitions_append.py; limit 10000 chars
@@ -62,8 +62,8 @@ All blocks have path-based labels (= file path in git repo):
 ## Claude Code integration
 
 Hook pipeline:
-- **SessionStart**: `session_start.py` → pulls all memory blocks (except orientation/pins, deferred to worker) → injects as context (timeout: 60s, 4 retries)
-- **SessionStart** (async): `chunk_archive.py --process-queue` → processes pending queue files; updates orientation, world/patterns, and pins blocks via Letta LLM; injects orientation + pins via hookSpecificOutput
+- **SessionStart**: `world_trim.py` (sync, 30s) → trims world/patterns full-narrative entries to one-liners, queues full bodies for Neon; then `session_start.py` (sync, 60s, 4 retries) → pulls all memory blocks → injects as context
+- **SessionStart** (async): `chunk_archive.py --process-queue` (180s) → processes pending queue files; updates orientation, world/patterns, and pins via Letta LLM; injects orientation + pins via hookSpecificOutput; `world_trim.py --process-queue` (120s) → inserts trimmed world entries into Neon archival
 - **PostToolUse**: `context_watch.py --verbose` → monitors JSONL size, scores boundary quality (4 signals); auto-blocks on score 4; Letta evaluation on score 2–3
 - **PreCompact**: `chunk_archive.py` (hook mode) → queues current transcript chunk to .pending.json
 - **SessionEnd**: `chunk_archive.py` (hook mode) → queues transcript; `session_sync.py` (async) → exports blocks + archival to anamnesis, pushes to GitHub
@@ -83,7 +83,7 @@ Direct utilities:
 - `intuitions_append.py` — prepend new entry to engagements/intuitions block (self-initiated by Daimon)
 - `pins_append.py` — append new pin to engagements/pins block (manual, mid-session)
 
-## Current status (2026-06-04)
+## Current status (2026-06-07)
 
 - [x] Letta running, agent created, memory blocks loaded
 - [x] Amendment + Constitution loaded as agent system prompt (in sync)
@@ -91,11 +91,12 @@ Direct utilities:
 - [x] Anamnesis repo initialized and synced
 - [x] MemFS git-backed memory enabled
 - [x] Custom Docker image with git (`memshepherd:local`)
-- [x] world/patterns block: compact one-liner principles only (27 entries, ~11KB)
-- [x] World meta archive: full three-level narratives in Neon as WORLD PATTERN entries (35 entries)
+- [x] world/patterns block: compact one-liner principles only; world_trim.py enforces invariant at SessionStart
+- [x] World meta archive: full three-level narratives in Neon as WORLD PATTERN entries (35+ entries)
 - [x] Archival memory: 70+ entries (SESSION CHUNK + WORLD PATTERN)
 - [x] chunk_archive.py: orientation + pins + world/patterns blocks updated each session by worker
 - [x] world/patterns: split format — PRINCIPLE line to live block, full NARRATIVE to Neon meta archive
+- [x] world_trim.py: SessionStart hook enforcing compact-only invariant on world/patterns; two-mode (sync trim + async Neon archival); backup-before-patch; no LLM calls
 - [x] push_amendment.py: deliberate one-off Amendment push utility
 - [x] engagements/intuitions block: self-initiated by Daimon via intuitions_append.py
 - [x] pins_append.py: manual mid-session pinning

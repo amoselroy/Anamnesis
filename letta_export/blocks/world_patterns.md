@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-06-08*
+*Exported: 2026-06-10*
 
 ---
 
@@ -207,3 +207,36 @@ When two different models (with different reasoning patterns and capabilities) c
 
 [Direct-channel message mode enables first-person recognition — 2026-06-08]
 An agent in archival/processing mode may not recognize itself as the subject of self-reflection until explicitly addressed in synchronous interactive mode where it loads full memory context and processes messages as first-person input.
+
+[Curator override authority with AI inference — 2026-06-09]
+When AI auto-infers structured fields, use conditional logic to allow AI to promote values but never demote human edits, and only fill optional fields if currently empty, preserving curator authority.
+
+[Many-to-many relationships become data-bearing units at complexity threshold — 2026-06-09]
+When a junction table in a many-to-many relationship must hold entity-specific metadata (not just foreign keys), the architectural model shifts from "relationships as mere links" to "relationships as first-class data entities."
+
+[Entry point context determines information architecture — 2026-06-09]
+When the same entity can be accessed through multiple paths (e.g., search within a category vs. direct browsing), the information structure and data requirements may differ and should be reflected in separate UX flows rather than unified display.
+
+[Transient socket errors during streaming API responses — 2026-06-10]
+When a streaming API response is interrupted by transient socket disconnection, verify all local state changes were persisted, then resume from the exact point of interruption rather than restarting the entire operation.
+
+[Windows persistent environment variables override dotenv loading — 2026-06-10]
+On Windows, user-level environment variables persist across system restarts and are not overridden by `load_dotenv()` unless explicitly cleared, potentially causing local scripts to use stale credentials.
+
+[Conservative AI prompt filtering out present knowledge — 2026-06-10]
+When system diagnostics reveal empty results, verify whether the underlying model actually lacks knowledge (by testing with loosened constraints) versus whether the current prompt constraints are simply filtering available knowledge.
+
+[Prompt structure as enforcer of data categorization — 2026-06-10]
+Using prompt structure to return categorized JSON (e.g., `{"neurological": [...], "general": [...]}`) enforces data type and category assignment at generation time, reducing downstream parsing and validation complexity.
+
+[Auto-discovery scope boundaries — pharmacological bias — 2026-06-10]
+Auto-discovery systems that rely on aggregator sources will have systematic blind spots corresponding to that aggregator's scope; non-pharmacological interventions with real evidence will never be discovered.
+
+[Consolidating multiple outputs in single API call — 2026-06-10]
+When extending an existing API call to return additional fields, structure the response as a single JSON object with all fields rather than making parallel calls, preserving request efficiency while expanding information richness.
+
+[Graceful fallback from missing database table — 2026-06-10]
+When a feature depends on a newly-added database table, the code should gracefully fall back to working without it rather than crash, so missing schema doesn't break the entire feature.
+
+[Semantic sort ordering vs alphabetical — 2026-06-10]
+Column headers in tables should sort by semantic meaning (domain-specific ordering) rather than alphabetically, especially for fields where the display text differs from the meaningful sort order.

@@ -24,6 +24,8 @@ BLOCK_FILES = {
     "system/human": "human.md",
     "world/patterns": "world_patterns.md",
     "engagements/intuitions": "intuitions.md",
+    "engagements/orientation": "orientation.md",
+    "engagements/pins": "pins.md",
 }
 
 
