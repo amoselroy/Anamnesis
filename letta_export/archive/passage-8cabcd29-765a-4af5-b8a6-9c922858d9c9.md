@@ -1,0 +1,18 @@
+# SESSION CHUNK 2026-06-24 — Condition Detection and Auto-Linking During Research
+
+*ID: passage-8cabcd29-765a-4af5-b8a6-9c922858d9c9*
+*Created: 2026-06-25*
+
+---
+
+SESSION CHUNK 2026-06-24 — Condition Detection and Auto-Linking During Research
+
+STRUCTURED
+Files: C:\Users\Amos\projects\braindexer\services\agency_monitor.py, C:\Users\Amos\projects\braindexer\routers\therapies.py, C:\Users\Amos\projects\braindexer\routers\admin.py, C:\Users\Amos\projects\braindexer\services\scraper.py, C:\Users\Amos\projects\braindexer\static\admin.html
+Errors: JavaScript execution error: SyntaxError: Identifier 'grid' has already been decl; JavaScript execution error: TypeError: Cannot read properties of null (reading '
+Tools used: mcp__claude-in-chrome__navigate, mcp__claude-in-chrome__computer, mcp__claude-in-chrome__javascript_tool, ToolSearch, mcp__claude-in-chrome__tabs_close_mcp, Glob, Read, Grep, Edit, Bash, mcp__claude-in-chrome__read_page
+URLs: https://braindexer.onrender.com/therapy/lecanemab?condition=alzheimers-disease`, https://braindexer.onrender.com/therapy/gamma-sensory-stimulation?condition=alzheimers-disease`
+Dates: June 29, June 18, June 26
+
+SUMMARY
+Discovered critical bug in research/summarization flow: `linked_conditions` list was fetched from database BEFORE running `_detect_related_conditions()`, so for brand-new therapies the condition list was empty when generating three-tab summaries. This meant condition-specific scores and tab content were never generated even after conditions were auto-detected and linked to the database. Fixed by moving the `linked_conditions` fetch to AFTER `_upsert_detected_conditions()` call, so the in-memory list includes newly detected conditions. Also discovered that the condition detection prompt explicitly excluded "Alzheimer's Disease" from detection ("list conditions besides Alzheimer's Disease…") because the system was originally designed assuming every therapy was pre-linked to AD as base condition. This meant donepezil's primary indication (AD for cognitive symptoms) was never detected during trial run, only 17 off-label/secondary indications. Fixed by removing the "besides Alzheimer's Disease" exclusion from prompt so AD is detectable like any other condition. Additionally fixed a secondary issue: generate_summaries() was processing ALL linked conditions (including auto-detected disabled ones), wasting time. Added filter `AND COALESCE(c.enabled, TRUE) = TRUE` so only enabled conditions are summarized, dramatically reducing processing time from minutes to seconds per run.
