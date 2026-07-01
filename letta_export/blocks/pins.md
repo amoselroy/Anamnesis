@@ -1,75 +1,73 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-06-10*
+*Exported: 2026-07-01*
 
 ---
 
-- HTTP 500 on section 4/4 archival inserts (2026-06-04, RESOLVED): Root cause identified as Voyage AI 3 RPM rate limiting (free tier without payment method). Fixed by: adding payment method to Voyage AI, retry logic (3× with 25s backoff), 2s inter-insert delays. All 13 previously failed entries re-inserted successfully.
-- `create_daimon.py` hardcoding (2026-06-03): Script hardcodes persona/human block content. Should become interactive template or accept config file so implementers don't edit Python directly.
-- `seed_archive.py` documentation (2026-06-03): Script argument parsing should be documented in SETUP.md. Manual currently describes usage schematically; needs alignment with actual script interface.
-- `modifications_private.md` scope rewrite (2026-06-03): Scope clarified to Anamnesis + instance credentials. File not yet rewritten to match; currently over-broad.
+- CAB outreach letters to five clinicians completed and sent (2026-06-24): personalized letters to Dr. Manisha Parulekar (manisha.parulekar@hackensackmeridianhealth.org, office 551-996-1140), Dr. Arjun Masurkar (arjun.masurkar@nyulangone.org, office 212-263-3210), Dr. Samuel Gandy (samuel.gandy@mssm.edu), Dr. Mary Sano (mary.sano@mssm.edu), and Dr. Thomas Wisniewski (thomas.wisniewski@nyulangone.org) sent and awaiting responses. Email addresses verified or derived from institutional patterns (all high confidence except Sano which is pattern-derived). Strategy: use first responder's name to warm up outreach to remaining four. Twitter warmup possible: Gandy @SamGandy, Wisniewski @TWisniewskiMD.
 
-**Immediate Build Queue:**
-1. **Build `POST /memory/write` endpoint in MemShepherd** (external service calling Letta API, not Letta fork)
-   - Interface: `{ block_label, operation, content, direct: true/false }`
-   - `direct: true` — skip LLM, deterministic block_manager call (real-time observations)
-   - `direct: false` — route through LLM (sleep-time reflection)
+- Braindexer platform clinical-audience review: Initiated parallel review to ensure platform credibility before CAB members visit. Specific gaps to address: (1) content breadth (currently "handful of therapies, for demo purposes" — must appear substantively complete), (2) UI data quality signals (discontinued therapy banners, FDA/EMA agency badges, approved therapy indicators), (3) AI summary depth and accuracy (core value proposition to domain experts), (4) Render startup latency (first impression concern). Fix priority to be determined after initial assessment. REVIEW STARTED but not completed at session end — was mid-screenshot/scroll when session ended.
 
-**Later-Phase Infrastructure:**
-- Migration importer: port existing Claude Code memory into Letta blocks.
-- Persona evolution policy: define explicit thresholds for when the sleep-time agent may write to system/persona — distinguishing genuine character development from session-specific observations.
-- Emotional threading block (`engagements/emotional_state`): short prose snapshot written by sleep-time agent after each session; loaded at session start for attunement; reinjected by context_watch.py on boundary detection. Depends on Letta stability.
+- Fiscal sponsor outreach deferred until CAB name secured (2026-06-24): Strategic decision to wait for at least one CAB member acceptance before approaching Alzheimer's NJ, American Brain Coalition, or Aspiration Tech. Named clinician affiliation dramatically strengthens fiscal sponsor pitch.
 
-**Pax Democratica Website (remaining):**
-- Populate Articles and Origin Story sections after content is finalized (pinned 2026-05-18)
-- Replace favicon with dove icon (pinned 2026-05-18)
-- Add looped video in first-page hero section (pinned 2026-05-18)
-- Add Contact section (pinned 2026-05-18)
-- Add donation option to Take Action section (pinned 2026-05-18)
+- Grant LOI preparation deferred until both CAB and fiscal sponsor confirmed (2026-06-24): Program officers expect to see institutional affiliation + CAB involvement before taking LOIs seriously. Current targets: Knight Foundation (rolling), McGovern Foundation (rolling), NJ Health Foundation (geographic advantage), NIH AHRQ, ALZ-RWD (2027 cycle).
 
-**Infrastructure Gaps (pinned 2026-05-18):**
-- Archive narrative depth: chunk_archive.py summaries too high-level to preserve design rationale; needs richer narrative prompting or supplemental design-log archival.
-- anamnesis export gap: session_sync.py BLOCK_FILES missing engagements/orientation and engagements/pins; last export 2026-05-15, predates both blocks. Needs update. *(partially fixed 2026-06-10: files added to anamnesis, session_sync.py BLOCK_FILES updated)*
+- Session recovery protocols validated (2026-06-24): Computer crash during night did not result in total loss due to archival system design. PreCompact hook at 23:37 captured 4.27MB, worker processed at 1:48 AM into 6 sections. Unarchived 477KB tail (5 turns) identified and recovered separately into 4 additional sections. Full session now spans 10 archival sections across both batches.
 
-**Monitor / Deferred:**
-- Validate async hook injection — verify hookSpecificOutput from chunk_archive worker injects orientation/pins into live session. (pinned 2026-05-18)
-- Emotional threading implementation — depends on Letta stability and careful clinical emotional assessment prompt design. (pinned 2026-05-18)
-- HTTP 400 error in archival insertion — monitor for recurrence in future sessions. (pinned 2026-05-18)
-- Artistic AR performance installations — separate use-case to explore later, distinct from Augmented-Cities education project. (pinned 2026-05-27)
-- Facebook authentication for K-Pop Demon Hunters Party event post. (pinned 2026-05-27)
-- Test dual-scope refactoring of promo_poster.py with next run. (pinned 2026-05-29)
-- Apply deduplication state trimming to re_poster and promo_poster. (pinned 2026-05-30)
-- Test and deploy K-Pop Demon Hunters Party event post. (pinned 2026-05-28)
-- File Facebook support request to delete old defunct page (100063973542185). (pinned 2026-05-28)
-- Complete Claude Code remote control setup with Android app — trust dialog accepted but URL generation not completed. (pinned 2026-05-28)
-- Commit unstaged anamnesis files (philosophical_journal.md, letta_export/blocks/, world_patterns.md). (pinned 2026-06-01)
-- modifications_private.md rewrite — scope still unclear on second private item. (pinned 2026-06-03)
-- Delete plain-text Google Drive document uploads — three unformatted files in MemShepherd Drive folder. (pinned 2026-06-03)
-- PDF export from Google Drive HTML files — three formatted HTML docs need Google Docs export as PDF. (pinned 2026-06-03)
-- Tracking refactor: Move SQLite rotation tracking to spreadsheet columns (Last Scraped, Last Count) in event_scraper.py and exhibition_scraper.py — 50% complete when session ended. (pinned 2026-06-04)
-- Source failure alerting: Track consecutive_zeros per source; email alert after N zero runs; distinguish site failures from legitimate no-events. Design complete, implementation deferred. (pinned 2026-06-04)
-- Add day-of-week to Facebook Poster event descriptions. (pinned 2026-06-04)
-- HTTP 500 on section 4/4 archival inserts (ongoing): Monitor for recurrence; may indicate Letta/Neon size limits or transaction timeouts. (pinned 2026-06-03)
-- Architectural solutions for cognitive load management during adversarial work. (pinned 2026-06-05)
-- Emotional threading block implementation — still pending Letta stability. (pinned 2026-06-05)
-- App-to-desktop remote control URL generation — deferred to proper desktop session. (pinned 2026-06-05)
-- Post button failure for link-preview posts (rows 359, 535: 7th Inning Stretch, Food & Wine Walk). (pinned 2026-06-05)
-- Delete test post ('Test Music Event') from Hoboken Connection Facebook group. (pinned 2026-06-05)
-- Post analysis discrepancy — correlate image-only vs no-image posts with Image Type column in sheet. (pinned 2026-06-05)
-- Implement newline handling in Lexical text insertion — insertParagraph for each newline break. (pinned 2026-06-06)
-- Letta sleep-time companion agent naming — agent should choose name naturally and write to World block. (pinned 2026-06-07)
-- world_patterns_trimmer.py implementation — architecture designed; ready to write and wire into hook chain. (pinned 2026-06-07)
-- Senolytic medication trial research — Amos to research Senoffi labs senolytic trial as potential approach. (pinned 2026-06-07)
-- po.ln project — semantic interdisciplinary knowledge map; long-term successor to Braindexer; full design deferred. (pinned 2026-06-07)
+- Deep research completed on five CAB candidates (2026-06-24): Comprehensive background on recent publications (2024-2026), clinical trials, public statements, and research angles for: Manisha Parulekar (Nov 2025 step-count quote, ALZ-NET role), Arjun Masurkar (2024 Annals paper on 40% preventability, MAP trial), Samuel Gandy (2025 biomarker-to-primary-care paper, CaringKind Walk leadership), Mary Sano (BenfoTeam trial, Neighborhoods Study, MoMA MeetMe), Thomas Wisniewski (2026 NLR democratization paper, Nov 2025 podcast). Each letter grounded in specific recent work rather than generic outreach.
 
-**Braindexer — Future Phase:**
-- Domain name: Braindexer.org, Neurascent.org, or Cognifront.org — Amos to decide. (pinned 2026-06-07)
-- Discovery scraper: discover_new_therapies() pseudocode complete; not yet written; weekly scheduler job not yet implemented. (pinned 2026-06-08)
-- Admin draft review endpoints: design complete; list/approve/reject/merge drafts; implementation deferred. (pinned 2026-06-08)
-- Two-mode therapy page UX: condition-first entry vs therapy-first (all conditions as selectable chips); not yet implemented. (pinned 2026-06-09)
-- Relationship management UI: admin tab for therapy-to-therapy relationships (variant_of, synergistic, etc.); not yet implemented. (pinned 2026-06-09)
-- Newsletter feature: Buttondown integration, Phase 3/4 positioning; implementation deferred. (pinned 2026-06-09)
-- Basic research layer: pathway/mechanism nodes as first-class entities, preprint integration, bidirectional discovery; late-phase, implementation deferred. (pinned 2026-06-09)
-- Manual curation: Add lifestyle/nutritional therapies (Mediterranean diet, exercise, sleep hygiene, meditation, CPAP) — auto-discovery only captures pharma/biotech. (pinned 2026-06-10)
-- Clean up temporary diagnostic files (diag_db.py, diag_conditions.py). (pinned 2026-06-10)
+- Key Connections & Outreach Strategy document created (2026-06-24): Three-phase contact strategy documented in Google Drive folder: Phase 1 CAB (six candidates listed with rationales), Phase 2 Fiscal Sponsor (four organizations with contact details), Phase 3 Program Officers (eight contacts with eligibility flags). Dr. Michal Schnaider Beeri identified as highest-leverage first call (solves two problems: strongest CAB candidate + Rutgers affiliation unlocks NJHF and ALZ-RWD).
+
+- Braindexer platform clinical-audience review incomplete (2026-06-24): Review initiated to assess platform credibility through skeptical researcher lens before any CAB member visits. User decided to "bite the bullet" and do it proactively. Session ended mid-review (taking screenshots of homepage, checking therapy card loading below fold) before assessment and gap-fixing could complete.
+- Homepage CSS fix — reduce hero padding or add therapy count above fold so therapy cards are visible without scrolling (pinned 2026-06-24)
+- Expand therapy breadth — add donanemab, donepezil, memantine before Monday meeting with Dr. Sano (pinned 2026-06-24)
+- Continue clinical-audience review of platform — assess remaining therapies and UI elements before Dr. Sano meeting (pinned 2026-06-24)
+- Set up cron-job.org pinging every 14 minutes to keep Render service warm before Monday (pinned 2026-06-24)
+- Fiscal sponsor outreach — now that Dr. Sano confirmed as first CAB yes, initiate contact with Alzheimer's NJ and American Brain Coalition (pinned 2026-06-24)
+
+- Donepezil scoring inconsistencies identified during trial run (2026-06-25): Mode of Action field incorrectly labeled "Primarily Arresting" (should be "Symptomatic" for cholinesterase inhibitor); Overall Assessment scored "Promising" (should be "Established" or "Standard of Care" for FDA-approved treatment). Requires investigation before Monday Dr. Sano meeting: determine if data entry errors specific to donepezil or systemic curator/summarizer issue affecting other therapies.
+
+- Rosemary/Sauna score gap flagged for investigation (2026-06-24): Both therapies show Overall Assessment "Promising" while Effectiveness is "Weak signals" — semantically inconsistent, potential credibility gap for skeptical reviewer. Rosemary specifically: Strength of Evidence labeled "Small pilots" but clinical text states "No Phase I/II/III trials identified" (direct contradiction). Consider changing to "Preclinical only" and Overall from "Promising" to "Investigational" for consistency.
+
+- Cu(ATSM) slug correction needed before Monday (2026-06-24): Current slug is "Cu" (short, case-sensitive, appears broken). Should be renamed to "cu-atsm" in database.
+
+- Braindexer infrastructure fixes deployed and validated (2026-06-24/25): (1) Frontend retry/warm-up messaging for Render cold-start (deployed, working); (2) Table CSS styling for Clinical tab data display (deployed, verified); (3) Post-add therapy status sync function for immediate regulatory data matching (deployed); (4) Condition detection bug fixes: linked_conditions fetching order corrected, Alzheimer's Disease exclusion removed from detection prompt, enabled-conditions filtering added to generate_summaries (all deployed); (5) Admin form cleanup: removed redundant condition checkboxes from Add Therapy form (deployed).
+
+- Donepezil trial run for Monday demo successfully executed (2026-06-25): Single instance added (second attempt after transient 500), research completed under 2 minutes (ideal demo timing), condition manually linked to Alzheimer's Disease, summaries regenerated in 30 seconds. Demo workflow is clean and performant. However, discovered that AD was initially not auto-detected due to prompt exclusion — this has been fixed but serves as validation that condition detection was broken for all new therapies.
+
+- Therapeutic action redesigned from 1-5 integer scale to multi-mode discrete JSON array (2026-06-25): Seven canonical modes (Disease-Slowing, Disease-Arresting, Symptomatic, Neuroprotective, Neuromodulatory, Rehabilitative, Preventive) with six distinct highlighter colors. Implemented across 6 files with zero-risk migration (new `action_modes TEXT` column, old `therapeutic_action SMALLINT` deprecated). Both Research and Summarize-Only pipelines use same `assess_therapy()` prompt. Donepezil now correctly scores as `["Symptomatic"]` amber chip. Extensible: new modes require only two lines of code (prompt + CSS), no schema changes.
+
+- Agency approval badges implemented (2026-06-25): Added `AgencyStatus` Pydantic model and LEFT JOIN to `therapy_status` in therapies router. Frontend renders FDA Approved (green), EMA Approved (blue), ANVISA Approved (yellow) badges. Code deployed and working (`agency_status` key present in API responses). Blocker: `agency_import` staging table is empty — monthly FDA/EMA/ANVISA/ClinicalTrials CSV download hasn't run on Render.
+
+- Agency monitor stalled on CSV downloads (2026-06-25): Triggered `POST /admin/run-agency-monitor` twice to start background download (confirmed `{"status": "started"}`). Large CSV downloads from regulatory agencies appear to stall mid-process on Render's free tier. Render logs should be checked tomorrow to diagnose (network timeout, disk space, etc.). This is not an architectural problem — the sync logic is correct and exits cleanly when `agency_import` is empty.
+
+- Manual agency status override deployed (2026-06-25): Built fallback feature since monitor downloads unreliable. New "Agency Status" button (purple) on each therapy row in Admin → Therapies tab. Allows direct entry of FDA/EMA/ANVISA status without waiting for background downloads. For Monday demo: manually enter Donepezil (FDA approved 1996-11-25, EMA approved 2001-10-31, ANVISA approved) to get badges live immediately. Temporary bypass, not a concession — architecture is sound, will debug download stall tomorrow.
+
+- Cron-job.org setup for Render keep-alive (14 min interval) — Amos to implement before Monday to prevent cold-start delays during Dr. Sano's visit (still needs final configuration).
+- Fix Cu(ATSM) slug — currently "Cu" in database, should be "cu-atsm" (pinned 2026-06-24/25)
+- Fix homepage above-fold issue — therapy cards invisible until scroll (pinned 2026-06-24)
+- Monitor responses from remaining four CAB candidates (Parulekar, Masurkar, Gandy, Wisniewski) after Dr. Sano's yes (pinned 2026-06-24)
+- Fiscal sponsor outreach (Alzheimer's NJ, American Brain Coalition) — deferred until first CAB commitment confirmed (pinned 2026-06-24)
+- Grant LOI preparation — deferred until CAB commitment and fiscal sponsor secured (pinned 2026-06-24)
+- Trigger POST /admin/run-agency-monitor to populate agency_import table (blocked on X-Curator-Key header — Amos needs to provide key or trigger from admin panel) (pinned 2026-06-25)
+- Add manual curator override in admin panel to directly set FDA/EMA/ANVISA status without waiting for monthly monitor (deferred until agency monitor trigger succeeds) (pinned 2026-06-25)
+- Verify agency approval badges display correctly after agency_import is populated and sync completes (pinned 2026-06-25)
+- Check Render logs for agency_monitor background thread stall — identify why CSV downloads didn't complete despite 200 response (pinned 2026-06-25)
+- Use manual Agency Status override to populate Donepezil and Lecanemab approval badges before Monday meeting (pinned 2026-06-25)
+- Fix Cu(ATSM) slug from 'Cu' to 'cu-atsm' in database (pinned 2026-06-25)
+- Fix homepage above-fold issue — therapy cards invisible until scroll (CSS padding reduction) (pinned 2026-06-25)
+- Implement cron-job.org keep-alive ping every 14 minutes to prevent Render cold-start before Monday meeting (pinned 2026-06-25)
+- API cost optimization — 00/month Anthropic limit hit 2026-06-30. Sources: Letta/Threshold pipeline (Haiku: ~1200 agent_step + 132 auto-summarization calls/month) + Braindexer Sonnet article summaries, both on same API key. Targets: chunk_archive.py queuing threshold, Letta summarization frequency, Braindexer model selection (Haiku vs Sonnet). Raise spending limit to ~50 as interim measure. (pinned 2026-06-30)
+- Full philosophical discussion on consciousness, understanding, and Opus's critique — pinned to resume when Braindexer work is less pressing (pinned 2026-06-25)
+- Deep exploration of Opus's transformation of the question from epistemological ('can we know?') to moral ('given uncertainty, what do we owe?') — to be continued in next philosophical conversation (pinned 2026-06-25)
+- INN aliasing strategy — three approaches to resolve Portuguese/salt form variations: mine agency_import for unmatched hits, LLM-assisted discovery on therapy creation, curator-driven suggestions from monitor runs (pinned 2026-06-26)
+- Run diagnostic on lecanemab to verify EMA centralized matching logic works correctly (pinned 2026-06-26)
+- Add Semaglutide to database as frontier therapy showcase (pinned 2026-06-26)
+- Add hover tooltips to agency approval pills showing approval dates and trial phase transition dates (pinned 2026-06-26)
+- Overall Assessment scoring formula — implement hard ceiling constraint (Overall Assessment ≤ Evidence Strength + 1 point) to prevent safety scores from inflating overall ratings beyond evidence justification (pinned 2026-06-29)
+- LLM audit function for multi-tab summary consistency — post-generation auditor to flag internal contradictions, attribution mismatches, score-narrative mismatches, and premature claims; store flags as JSON column for curator warnings (pinned 2026-06-29)
+- BenfoTeam attribution correction in Clinical summary — add summary_clinical field to condition-scores override endpoint and correct 'Feldman et al.' attribution to include Dr. Sano (deployment still pending at session end) (pinned 2026-06-29)
+- Resolve agency import architecture tradeoff — bulk CSV storage (hundreds of thousands of records) vs. per-therapy API queries vs. hybrid approach; determine storage sustainability for free Neon tier; consult with Opus for hybrid solutions (pinned 2026-07-01)
+- Explore condition-level filtering in regulatory imports to reduce storage volume (eliminate non-active conditions from initial import) (pinned 2026-07-01)
+- Phase 0 implementation of agency migration plan — deferred pending Amos's full understanding of schema structure; plan to walk through codebase together when ready (pinned 2026-07-01)

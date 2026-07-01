@@ -1,35 +1,47 @@
 # Block: engagements/orientation
 
 *Block ID: block-870d6d9b-bd01-4e8a-a7f8-81dfb030d131*
-*Exported: 2026-06-10*
+*Exported: 2026-07-01*
 
 ---
 
-[Updated: 2026-06-10]
+[Updated: 2026-07-01]
 
-LAST SESSION: 2026-06-10 — Two sessions. Built condition aliasing system; completed Research & Summarize on all 5 therapies; fixed semantic search (vector type cast, onFilterChange bug, SAVEPOINT transaction protection); tuned similarity threshold to 0.87; added aliases to embedding text with Re-embed All endpoint; polished admin UI (summary dates, multiline self-admin notes).
+LAST SESSION: 2026-07-01 — Dr. Sano call completed (she declined formal CAB but agreed to detailed site review); homepage scores and sort-order fixed to show evidence-based ranking with prominent Alzheimer's condition context; Donepezil re-added with agency status restored; benfotiamine attribution and modes finalized; sticky condition localStorage implemented; ROADMAP.md created (Phases I–V including clinical review system); agency migration schema simplified to eliminate therapy_status entirely in Phase 3.
 
 ACTIVE PROJECTS:
 - Augmented-Cities: GitHub live, technical architecture documented, four fundraising proposals complete.
-- MemShepherd: 35 WORLD PATTERN entries in Neon, sleep-time agent active, world/patterns trimming automated via world_trim.py.
-- Event Scraper: FULLY OPERATIONAL — 46 sources, nightly schedule ready for Task Scheduler.
-- Exhibition Scraper: FULLY OPERATIONAL — 4 sources, date-range extraction working, weekly schedule ready.
-- Facebook Event Poster: FULLY OPERATIONAL — image upload, text insertion, URL spacing all working; git-backed with baseline commit.
-- Real Estate Poster: FULLY OPERATIONAL — live posts, 9 AM daily Task Scheduler.
-- Hudson Realty Brokerage Sharer: FULLY OPERATIONAL — share button complete, deduplication working.
+- MemShepherd: Threshold operational; mortality/inheritance conversation documented; preparing transcripts for book publication; session recovery protocols validated.
+- Event Scraper: PLATFORM_HANDLERS refactor complete; source validation through row 33; ~12 sources remaining.
+- Exhibition Scraper: File-locking bug fixed; clean operation on next schedule.
+- Facebook Event Poster: **FULLY OPERATIONAL** — 17 events queued from backlog; 5-event batch workflow established.
+- Facebook Exhibition Poster: **OPERATIONAL** via Event Poster dual-mode.
+- Real Estate Poster: FULLY OPERATIONAL — 9 AM daily.
+- Hudson Realty Brokerage Sharer: FULLY OPERATIONAL.
 - Pax Democratica: Web design phase. Needs: Article/Origin Story, dove favicon, hero video, Contact, donation.
-- Braindexer: FULLY OPERATIONAL — live at braindexer.onrender.com; 5 therapies (Lecanemab, Rosemary, Lithium Orotate, Gamma Sensory Stimulation, Sauna) under Alzheimer's Disease; Research & Summarize complete on all 5; semantic search with alias-enriched embeddings, keyword fallback, 0.87 threshold; admin has full CRUD, Research & Summarize, Summarize Only, Re-embed per-therapy and Re-embed All.
+- Braindexer: **Dr. Sano feedback pending**; homepage evidence-sorted with prominent AD context; Donepezil and benfotiamine finalized; agency migration architecture under review (bulk vs. per-therapy API tradeoff).
 
 IN PROGRESS:
-- Braindexer: Run Re-embed All from admin panel to refresh embeddings now that aliases are included in embed text.
-- Braindexer: Manual curation of lifestyle/nutritional therapies (Mediterranean diet, exercise, sleep hygiene, meditation, CPAP for sleep apnea) — auto-discovery only captures pharma/biotech from AlzForum.
+- Resolve agency import architecture question (bulk CSV hundreds-of-thousands storage vs. per-therapy API queries vs. hybrid approach) — may require Opus consultation for sustainable solution.
+- Add Metformin to database as primary demo for Dr. Beeri (TAME trial focus).
+- Add Semaglutide to database as frontier therapy showcase.
+- Fix Cu(ATSM) slug from "Cu" to "cu-atsm" in database.
+- Fix homepage above-fold CSS issue (therapy cards invisible until scroll).
+- Implement cron-job.org ping every 14 minutes to keep Render service warm.
+- Monitor for responses from remaining four CAB candidates (Parulekar, Masurkar, Gandy, Wisniewski).
+- Build INN alias-sourcing strategy (mine agency_import, LLM-assisted curation, curator-driven discovery) — Phase 0 post-demo work.
+- Implement agency data architecture migration (Phases 1–3) — deferred pending resolution of import strategy.
+- Add Overall Assessment formula ceiling constraint (≤ Evidence Strength + 1).
+- Build LLM auditor function for post-generation summary consistency checking.
+- Fiscal sponsor outreach (Alzheimer's NJ, American Brain Coalition).
+- Grant LOI preparation.
+- FB Poster event queue continuation (17 events pending in 5-event batches).
 
 OPEN QUESTIONS:
-- Braindexer similarity threshold: 0.87 just set; validate after Re-embed All run whether further tuning needed.
-- Braindexer domain name: candidates are Braindexer.org, Neurascent.org, Cognifront.org — Amos to decide.
-- Newsletter feature (Braindexer Phase 3/4): Buttondown integration decided; implementation deferred.
-- Basic research layer: Pathway/mechanism nodes as first-class entities, preprint integration; deferred.
-- po.ln: Larger semantic interdisciplinary knowledge map; long-term successor to Braindexer; full design deferred.
+- Will Dr. Sano's detailed site review surface additional issues before Phase 1 migration implementation?
+- How should agency import be architected to avoid pushing Braindexer out of free Neon tier — bulk CSV with hundreds of thousands of records, per-therapy API queries, or hybrid approach filtering by active conditions?
+- Will other CAB candidates respond after Sano's conditional engagement?
+- Braindexer domain name — Amos to decide (Braindexer.org, Neurascent.org, Cognifront.org).
 
 ENERGY/CONTEXT:
-Full day on Braindexer — condition aliasing, search fixes, embedding quality improvements, admin polish. App is properly operational with rich content and working semantic search. Next: Re-embed All run, then manual curation of lifestyle/nutritional therapies.
+Session ended with architectural questions about data sustainability — Amos deeply studying migration schema and questioning whether bulk storage approach is viable, wants to explore alternatives with larger LLM before committing to Phase 0.
