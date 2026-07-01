@@ -62,7 +62,7 @@ def fetch_passages():
     result = subprocess.run(
         ["docker", "exec", "memshepherd-letta",
          "psql", neon_uri, "-t", "-A", "-c", sql],
-        capture_output=True, text=True, timeout=30
+        capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=30
     )
     raw = result.stdout.strip()
     if not raw or raw == "\\N":
