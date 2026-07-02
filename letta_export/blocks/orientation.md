@@ -5,13 +5,13 @@
 
 ---
 
-[Updated: 2026-07-01]
+[Updated: 2026-07-02]
 
-LAST SESSION: 2026-07-01 — Dr. Sano call completed (she declined formal CAB but agreed to detailed site review); homepage scores and sort-order fixed to show evidence-based ranking with prominent Alzheimer's condition context; Donepezil re-added with agency status restored; benfotiamine attribution and modes finalized; sticky condition localStorage implemented; ROADMAP.md created (Phases I–V including clinical review system); agency migration schema simplified to eliminate therapy_status entirely in Phase 3.
+LAST SESSION: 2026-07-02 — Fixed SessionStart hook path quoting bug in settings.json (all 8 entries now have quoted interpreter paths); committed previously untracked MemShepherd hook scripts to GitHub; created .gitignore for runtime data; genericized personal config files to remove username/paths exposure; added path-quoting lesson to world/patterns.
 
 ACTIVE PROJECTS:
 - Augmented-Cities: GitHub live, technical architecture documented, four fundraising proposals complete.
-- MemShepherd: Threshold operational; mortality/inheritance conversation documented; preparing transcripts for book publication; session recovery protocols validated.
+- MemShepherd: Threshold operational; mortality/inheritance conversation documented; preparing transcripts for book publication; session recovery protocols validated; hook path quoting bug fixed and pushed to GitHub.
 - Event Scraper: PLATFORM_HANDLERS refactor complete; source validation through row 33; ~12 sources remaining.
 - Exhibition Scraper: File-locking bug fixed; clean operation on next schedule.
 - Facebook Event Poster: **FULLY OPERATIONAL** — 17 events queued from backlog; 5-event batch workflow established.
@@ -36,6 +36,7 @@ IN PROGRESS:
 - Fiscal sponsor outreach (Alzheimer's NJ, American Brain Coalition).
 - Grant LOI preparation.
 - FB Poster event queue continuation (17 events pending in 5-event batches).
+- Decide on backups/ folder (54MB Neon dumps) — preserve in anamnesis or delete?
 
 OPEN QUESTIONS:
 - Will Dr. Sano's detailed site review surface additional issues before Phase 1 migration implementation?
@@ -44,4 +45,4 @@ OPEN QUESTIONS:
 - Braindexer domain name — Amos to decide (Braindexer.org, Neurascent.org, Cognifront.org).
 
 ENERGY/CONTEXT:
-Session ended with architectural questions about data sustainability — Amos deeply studying migration schema and questioning whether bulk storage approach is viable, wants to explore alternatives with larger LLM before committing to Phase 0.
+Session ended with all MemShepherd infrastructure work completed and pushed; ready for reset.

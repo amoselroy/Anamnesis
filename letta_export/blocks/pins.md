@@ -71,3 +71,4 @@
 - Resolve agency import architecture tradeoff — bulk CSV storage (hundreds of thousands of records) vs. per-therapy API queries vs. hybrid approach; determine storage sustainability for free Neon tier; consult with Opus for hybrid solutions (pinned 2026-07-01)
 - Explore condition-level filtering in regulatory imports to reduce storage volume (eliminate non-active conditions from initial import) (pinned 2026-07-01)
 - Phase 0 implementation of agency migration plan — deferred pending Amos's full understanding of schema structure; plan to walk through codebase together when ready (pinned 2026-07-01)
+- Decision on backups/ folder (54MB Neon dumps from 2026-06-30) — copy to anamnesis private repo for preservation, or delete since Neon is authoritative source of truth? (pinned 2026-07-02)
