@@ -1,7 +1,7 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-07-02*
+*Exported: 2026-07-03*
 
 ---
 
@@ -72,3 +72,13 @@
 - Explore condition-level filtering in regulatory imports to reduce storage volume (eliminate non-active conditions from initial import) (pinned 2026-07-01)
 - Phase 0 implementation of agency migration plan — deferred pending Amos's full understanding of schema structure; plan to walk through codebase together when ready (pinned 2026-07-01)
 - Decision on backups/ folder (54MB Neon dumps from 2026-06-30) — copy to anamnesis private repo for preservation, or delete since Neon is authoritative source of truth? (pinned 2026-07-02)
+
+- Braindexer Fable 5 code review completed and findings documented (2026-07-02): Nine critical and high-severity issues identified with verified root causes. REVIEW_2026-07-02.md in Braindexer repo contains full findings with checkboxed remediation items and file references. Critical issues: (1) unauthenticated write/delete on sources/relationships routers, (2) curator score overrides clobbered on next research/summarize run (null-clobber bug class duplicate), (3) silent migration error-swallowing with no logging. High-severity: unauthenticated /therapies/search triggering paid API calls, substring news-matching creating false attribution, daemon threads vulnerable to Render spin-down. Nine tasks (#1-9) queued for next session. Root cause connecting multiple Phase II/IV blocks: summaries/scores rewritten without versioning history, orphaning planned annotations/flags. See pins below for full issue list and architectural conflicts.
+
+- Braindexer architecture planning conflict requiring decision (2026-07-02): ROADMAP.md describes OAuth + full accounts + clinical-review-first path (Phase III OAuth, Phase IV review/annotations); pseudocode.md describes lightweight email-token auth + newsletter-first path (Phase 4 email-token, Phase 5 research layer). Different auth mechanisms, phase numbering, product direction. No code built on either path yet (greenfield), so decision point is low-cost now but affects all downstream Phase III+ work. Must choose before building membership foundation. Also: newsletter design (pseudocode:490) depends on accurate news sourcing, which requires fixing substring-matching false attribution bug (#5 from review) first.
+
+- Fable 5 access window active through July 7, 11:59:59 PM PT (2026-07-02): Costs exactly 2x Opus 4.8 per token (input $10/1M, output $50/1M vs Opus $5/$25). Hard cutoff at specified timestamp — no grace period, no extension, full retraction from weekly limits to credit-only. Requires Claude Code v2.1.170+ (verified at v2.1.198). Covers claude.ai/Claude Code/Cowork/Design but NOT API — Managed Agents accessible via Claude Code are covered. Weekly reset timing suspected Friday but unconfirmed (Amos unable to locate documentation). Braindexer review completed using Fable 5; next major analysis work could leverage remaining window through July 7. Performance on comprehensive code review exceeded "faster but shallower" expectations — thorough synthesis across documents and issue connection.
+
+- Braindexer summary/score versioning gap blocking multiple phases (2026-07-02): Phase IV claim_annotations (ROADMAP:71) stores claim_text sentences that become orphaned when summaries are regenerated. Phase II audit-status (ROADMAP:28) flags stale immediately on next summarize. pseudocode Phase 4 newsletter delta comparison (pseudocode:481) needs prior scores but none are versioned. All three depend on stable summary anchors. Fix requires adding history/versioning column (Phase 0/II work) before Phase III+ builds on it. Currently overwrite-in-place with COALESCE protection only on evidence_level, not effectiveness/evidence/overall scores.
+
+- Doc-vs-code discrepancies in Braindexer (2026-07-02): (1) Null-clobber COALESCE fix listed as Phase 0 future work but already implemented in agency_monitor.py:419-433 — mark complete. (2) Phase 0 schema tables (agency_approvals, trial_records, etc.) live in _MIGRATIONS but are empty — nothing writes to them yet (Phase 1b shadow-write not implemented). (3) Phase 1a scheduler removal marked as future but already done in scheduler.py:73-78. (4) ANVISA marked "removed from pipeline" in AGENCY_MIGRATION_PLAN.md:45 but still wired into agency_monitor.py:665-670, causing get_missing_agencies() to perpetually report ANVISA as missing and retry forever.
