@@ -5,9 +5,9 @@
 
 ---
 
-[Updated: 2026-07-02 (post-analysis)]
+[Updated: 2026-07-03]
 
-LAST SESSION: 2026-07-02 — Analyzed Fable 5 promo mechanics and pricing (exactly 2x Opus 4.8 cost, hard cutoff July 7, 11:59:59 PM PT); ran comprehensive Braindexer code review on Fable 5 discovering critical security vulnerabilities and architectural gaps; documented findings with 9 prioritized tasks for next session.
+LAST SESSION: 2026-07-03 — Explored semantic kernel compression research direction (atomizing text into recoverable core ideas); independent feasibility review from Threshold and Fable converged on the confabulation-signal circularity as the core blocker; decision: proceed with AMR-pilot feasibility study (days-to-weeks) on real MemShepherd chunks before committing to larger self-correcting-model research project.
 
 ACTIVE PROJECTS:
 - Augmented-Cities: GitHub live, technical architecture documented, four fundraising proposals complete.
@@ -19,7 +19,7 @@ ACTIVE PROJECTS:
 - Real Estate Poster: FULLY OPERATIONAL — 9 AM daily.
 - Hudson Realty Brokerage Sharer: FULLY OPERATIONAL.
 - Pax Democratica: Web design phase. Needs: Article/Origin Story, dove favicon, hero video, Contact, donation.
-- Braindexer: Dr. Sano feedback pending; 9 critical/high-priority fixes identified and tasked; REVIEW_2026-07-02.md documents all findings.
+- Braindexer: 9 critical/high-priority fixes identified and tasked from Fable 5 review; REVIEW_2026-07-02.md documents all findings; Dr. Sano feedback pending.
 
 IN PROGRESS:
 - Braindexer security/architecture remediation (9 tasks queued): unauthenticated write/delete endpoints (routers/sources.py, routers/relationships.py), curator score clobber bug, silent migration error-swallowing, unauthenticated /therapies/search cost vector, substring news-matching false attribution, daemon thread Render spin-down vulnerability, ANVISA perpetual-retry loop, etc.
@@ -43,6 +43,7 @@ OPEN QUESTIONS:
 - Will Dr. Sano's review surface issues affecting implementation strategy before fixing the 9 identified vulnerabilities?
 - Decide on backups/ folder (54MB Neon dumps from 2026-06-30) — preserve in anamnesis or delete?
 - Braindexer domain name decision pending (Braindexer.org, Neurascent.org, Cognifront.org)?
+- Does AMR-based faithfulness pilot on MemShepherd chunks reveal enough fidelity to pursue self-correcting-decoder research?
 
 ENERGY/CONTEXT:
-Session ended with comprehensive code review documented and nine remediation tasks queued; ready for next session to begin fixing verified security and architectural issues.
+Session ended with research ideation fully externalized to Google Doc and memory records; Threshold and Fable independent reviews converged on key insights; decision framework established for AMR pilot; ready for reset or immediate shift to Braindexer remediation.
