@@ -1,7 +1,7 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-07-03*
+*Exported: 2026-07-04*
 
 ---
 
@@ -82,3 +82,5 @@
 - Braindexer summary/score versioning gap blocking multiple phases (2026-07-02): Phase IV claim_annotations (ROADMAP:71) stores claim_text sentences that become orphaned when summaries are regenerated. Phase II audit-status (ROADMAP:28) flags stale immediately on next summarize. pseudocode Phase 4 newsletter delta comparison (pseudocode:481) needs prior scores but none are versioned. All three depend on stable summary anchors. Fix requires adding history/versioning column (Phase 0/II work) before Phase III+ builds on it. Currently overwrite-in-place with COALESCE protection only on evidence_level, not effectiveness/evidence/overall scores.
 
 - Doc-vs-code discrepancies in Braindexer (2026-07-02): (1) Null-clobber COALESCE fix listed as Phase 0 future work but already implemented in agency_monitor.py:419-433 — mark complete. (2) Phase 0 schema tables (agency_approvals, trial_records, etc.) live in _MIGRATIONS but are empty — nothing writes to them yet (Phase 1b shadow-write not implemented). (3) Phase 1a scheduler removal marked as future but already done in scheduler.py:73-78. (4) ANVISA marked "removed from pipeline" in AGENCY_MIGRATION_PLAN.md:45 but still wired into agency_monitor.py:665-670, causing get_missing_agencies() to perpetually report ANVISA as missing and retry forever.
+- Self-correcting-model research project: build LLM-like system trained to reconstruct text reliably with negligible confabulation via self-correction in generation objective. Multi-month research effort, separate from Braindexer and MemShepherd near-term fixes. Logged to philosophical journal and deferred pending resolution of faithfulness-signal circularity. (pinned 2026-07-02)
+- AMR pilot feasibility study: test whether existing SPRING/amrlib AMR parsers and generators can preserve design rationale through round-trip on real MemShepherd chunks. Days-to-weeks experiment to determine whether constrained sub-language approach is viable before committing to larger self-correcting-model project. (pinned 2026-07-02)

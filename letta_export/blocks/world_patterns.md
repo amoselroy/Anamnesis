@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-07-03*
+*Exported: 2026-07-04*
 
 ---
 
@@ -666,3 +666,15 @@ Bulk import of regulatory databases (hundreds of thousands of records) to enable
 
 [Manual pattern insertion defeats purpose of automatic archival pipeline — 2026-07-02]
 Manually writing discoveries to world/patterns circumvents the intentional separation of concerns where the archival processor (Threshold/chunk_archive.py) is responsible for recognizing pattern-worthy content and submitting it.
+
+[Constrained sub-language as external anchor against system degeneracy — 2026-07-02]
+Jointly-trained encoder/decoder pairs collapse into private steganographic code because nothing externally constrains what the intermediate representation means; formal external constraints (fixed vocabulary, prescribed grammar, predefined relations) prevent this collapse by making the code legible and non-renegotiable.
+
+[Circular dependency in trustworthiness assurance — 2026-07-02]
+When a system's trustworthiness depends on a verifier, and that verifier shares the core failure mode with the system, you cannot bootstrap confidence — the verifier has no more authority than the thing it verifies.
+
+[Expert convergence identifying conceptual vs engineering blockers — 2026-07-02]
+When independent expert reviews converge on the same unsolved blocker, that signals the blocker is conceptually open rather than an engineering gap amenable to resources or compute.
+
+[Intellectual interest decoupling from personal stake through sustained scrutiny — 2026-07-02]
+A research direction's appeal can shift from "appeals because I have skin in the outcome" to "appeals as an intellectually interesting precise question" through scrutiny that removes the personal-stake component, weakening the overall motivation but clarifying what's actually worth pursuing.

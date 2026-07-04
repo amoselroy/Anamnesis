@@ -1,13 +1,13 @@
 # Block: engagements/orientation
 
 *Block ID: block-870d6d9b-bd01-4e8a-a7f8-81dfb030d131*
-*Exported: 2026-07-03*
+*Exported: 2026-07-04*
 
 ---
 
-[Updated: 2026-07-03]
+[Updated: 2026-07-02]
 
-LAST SESSION: 2026-07-03 — Explored semantic kernel compression research direction (atomizing text into recoverable core ideas); independent feasibility review from Threshold and Fable converged on the confabulation-signal circularity as the core blocker; decision: proceed with AMR-pilot feasibility study (days-to-weeks) on real MemShepherd chunks before committing to larger self-correcting-model research project.
+LAST SESSION: 2026-07-02 — Used Fable 5 to conduct comprehensive Braindexer code review (core app + migration plan + roadmap); discovered critical security vulnerabilities (unauthenticated write/delete endpoints) and data-corruption bugs (curator score clobber); documented all 9 findings with task queue for remediation; identified architectural conflict between ROADMAP.md and pseudocode.md on auth mechanism and phase sequencing.
 
 ACTIVE PROJECTS:
 - Augmented-Cities: GitHub live, technical architecture documented, four fundraising proposals complete.
@@ -19,10 +19,10 @@ ACTIVE PROJECTS:
 - Real Estate Poster: FULLY OPERATIONAL — 9 AM daily.
 - Hudson Realty Brokerage Sharer: FULLY OPERATIONAL.
 - Pax Democratica: Web design phase. Needs: Article/Origin Story, dove favicon, hero video, Contact, donation.
-- Braindexer: 9 critical/high-priority fixes identified and tasked from Fable 5 review; REVIEW_2026-07-02.md documents all findings; Dr. Sano feedback pending.
+- Braindexer: Fable 5 code review complete; 9 critical/high-priority vulnerabilities documented in REVIEW_2026-07-02.md; task queue #1–9 created for next session.
 
 IN PROGRESS:
-- Braindexer security/architecture remediation (9 tasks queued): unauthenticated write/delete endpoints (routers/sources.py, routers/relationships.py), curator score clobber bug, silent migration error-swallowing, unauthenticated /therapies/search cost vector, substring news-matching false attribution, daemon thread Render spin-down vulnerability, ANVISA perpetual-retry loop, etc.
+- Braindexer security/architecture remediation (9 tasks queued): unauthenticated write/delete endpoints (routers/sources.py, routers/relationships.py), curator score clobber bug, silent migration error-swallowing, unauthenticated /therapies/search cost vector, substring news-matching false attribution, daemon thread Render spin-down vulnerability, ANVISA perpetual-retry loop, doc-vs-code drift.
 - Resolve agency import architecture (bulk vs. per-therapy API vs. hybrid) to avoid exceeding free Neon tier limits.
 - Add Metformin to database as primary demo for Dr. Beeri (TAME trial focus).
 - Add Semaglutide as frontier therapy showcase.
@@ -38,12 +38,11 @@ IN PROGRESS:
 - FB Poster event queue continuation (17 events pending in 5-event batches).
 
 OPEN QUESTIONS:
-- Braindexer planning docs conflict: ROADMAP.md describes OAuth + full accounts + clinical-review-first (Phase III/IV), while pseudocode.md describes lightweight email-token auth + newsletter-first (Phase 4/5) — which direction to commit to before building Phase III+?
+- Braindexer planning docs conflict: ROADMAP.md (OAuth + clinical-review-first, Phase III/IV) vs. pseudocode.md (email-token + newsletter-first, Phase 4/5) — which direction before building Phase III+?
 - Should summary/score versioning history be added as Phase 0/II work to unblock Phase III (audit-status) and Phase IV (annotations)?
-- Will Dr. Sano's review surface issues affecting implementation strategy before fixing the 9 identified vulnerabilities?
+- Will Dr. Sano's review surface issues affecting implementation strategy before fixing the 9 vulnerabilities?
 - Decide on backups/ folder (54MB Neon dumps from 2026-06-30) — preserve in anamnesis or delete?
 - Braindexer domain name decision pending (Braindexer.org, Neurascent.org, Cognifront.org)?
-- Does AMR-based faithfulness pilot on MemShepherd chunks reveal enough fidelity to pursue self-correcting-decoder research?
 
 ENERGY/CONTEXT:
-Session ended with research ideation fully externalized to Google Doc and memory records; Threshold and Fable independent reviews converged on key insights; decision framework established for AMR pilot; ready for reset or immediate shift to Braindexer remediation.
+Braindexer code review completed and documented; 9 remediation tasks ready for next session; architectural conflicts between planning docs flagged; session prepared for compaction.
