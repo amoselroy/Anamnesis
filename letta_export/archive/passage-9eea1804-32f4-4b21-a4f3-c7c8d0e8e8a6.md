@@ -1,0 +1,18 @@
+# SESSION CHUNK 2026-07-03 — Implementation of Single Process-Wide Lock and Atomic
+
+*ID: passage-9eea1804-32f4-4b21-a4f3-c7c8d0e8e8a6*
+*Created: 2026-07-04*
+
+---
+
+SESSION CHUNK 2026-07-03 — Implementation of Single Process-Wide Lock and Atomic Staleness Reclaim
+
+STRUCTURED
+Files: C:\Users\Amos\.claude\settings.json, C:\Users\Amos\AppData\Local\Temp\claude\C--Users-Amos\4e0249e3-91ad-4f2d-8d81-20300fcdac1b\scratchpad\fetch_full_passage.py, C:\Users\Amos\.claude\memshepherd\hooks\chunk_archive.py, C:\Users\Amos\.claude\memshepherd\MODIFICATIONS.md, C:\Users\Amos\.claude\projects\C--Users-Amos\memory\feedback_permission_remote.md, C:\Users\Amos\.claude\projects\C--Users-Amos\memory\project_memshepherd.md, C:\Users\Amos\.claude\memshepherd\ARCHITECTURE.md, C:\Users\Amos\AppData\Local\Temp\claude\C--Users-Amos\4e0249e3-91ad-4f2d-8d81-20300fcdac1b\scratchpad\_worker.lock, C:\Users\Amos\.claude\memshepherd\hooks\worker_lock.py, C:\Users\Amos\.claude\memshepherd\hooks\world_trim.py, C:\Users\Amos\.claude\journal_entry_tmp.md
+Errors: Exit code 49
+Python was not found; run without arguments to install from the Mic; The user doesn't want to proceed with this tool use. The tool use was rejected (; Exit code 1
+Error: 'charmap' codec can't encode character '\ufffd' in position 5; <tool_use_error>InputValidationError: TaskCreate failed due to the following iss
+Tools used: Bash, Read, Agent, Edit, PowerShell, Write, TaskCreate
+
+SUMMARY
+Daimon replaced the per-file claim mechanism with a single process-wide `_worker.lock` file. Only one `process_queue()` invocation can hold it at any time, serializing all block writes by construction. SessionEnd-style calls fail fast if the lock is held (nothing lost, files remain queued). SessionStart-style calls also fail fast rather than polling. When reclaiming a stale lock (stale threshold: 660s, pinned to SessionEnd's hook timeout plus margin to avoid racing a healthy slow worker), use atomic `rename()` to claim the old lock's parent directory entry, then delete the old lock — exactly one racer can win the rename, the other cleanly loses and backs off. This closes the TOCTOU that existed in the unlink-based approach. All scenarios verified: normal run (no contention), fail-fast on held lock, and stale-lock reclaim with correct one-winner behavior.

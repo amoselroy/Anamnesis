@@ -678,3 +678,18 @@ When independent expert reviews converge on the same unsolved blocker, that sign
 
 [Intellectual interest decoupling from personal stake through sustained scrutiny — 2026-07-02]
 A research direction's appeal can shift from "appeals because I have skin in the outcome" to "appeals as an intellectually interesting precise question" through scrutiny that removes the personal-stake component, weakening the overall motivation but clarifying what's actually worth pursuing.
+
+[Widening analytical frame reveals design-invisible bugs — 2026-07-04]
+A bug in a design is often invisible from the vantage point that produced the design; examining beyond the artifact that changed finds failures at integration boundaries.
+
+[Parameterized behavior prevents caller-sensitive branching drift — 2026-07-04]
+When the same function is called from different contexts with legitimately different needs, explicit parameters make behavioral differences clear and auditable, whereas caller-detection logic inevitably diverges.
+
+[Single process-wide lock serializes correctness better than per-unit claims — 2026-07-04]
+When multiple processes write to shared state, protecting individual units (files, rows) does not protect the shared resources they all write to; a single system-wide lock makes protection exhaustive and non-negotiable.
+
+[Atomic operations on staleness markers prevent racing reclamation — 2026-07-04]
+When reclaiming abandoned resources based on staleness timestamps, atomic filesystem operations prevent two racers from both believing they acquired the resource.
+
+[Fail-fast lock acquisition is simpler and faster than bounded waiting — 2026-07-04]
+When a worker cannot acquire a resource, polling with a deadline adds latency for no freshness benefit; immediate failure lets the caller apply its own retry logic intelligently.
