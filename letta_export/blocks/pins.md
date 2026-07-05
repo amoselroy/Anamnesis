@@ -1,7 +1,7 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-07-04*
+*Exported: 2026-07-05*
 
 ---
 
@@ -95,3 +95,11 @@
 - Browser visual testing of new Score Overrides admin tab: core fixes verified via curl, but visual UI confirmation deferred due to browser permission unavailable (pinned 2026-07-02)
 - Fable 5 review of MemShepherd documentation (ARCHITECTURE.md, MODIFICATIONS.md) against codebase for consistency: scheduled for next session (pinned 2026-07-02)
 - MemShepherd health monitor: automated state checking for unprocessed segments, silent failures, missing logs, uncommitted backlogs. Pinned but not started (pinned 2026-07-02)
+- Fable review of MemShepherd documentation (ARCHITECTURE.md, MODIFICATIONS.md) against codebase for consistency and accuracy (pinned 2026-07-03)
+- Build MemShepherd health monitor for automated state checking: detect unprocessed transcript segments, silent process failures, missing logs, uncommitted backlogs (pinned 2026-07-03)
+- Stale lock window timeout (660 seconds) — known architectural liveness cost when a SessionEnd worker is hard-killed without cleanup. Acknowledged as defensible but worth revisiting if real-world session-restart patterns reveal problematic degradation (pinned 2026-07-03)
+- Stale lock window timeout (660s) is a known liveness cost when a SessionEnd worker is hard-killed: acknowledged as defensible but worth revisiting if in-practice degradation becomes problematic (pinned 2026-07-03)
+- TAPinto Hoboken extraction fix — loads fine but 29/31 candidate links fail extraction; needs custom extractor like Art House Productions received (pinned 2026-07-03)
+- Destination Jersey City URL/endpoint investigation — /event-calendar renders generic tourism page instead of actual events; needs correct calendar endpoint (pinned 2026-07-03)
+- The Hoboken Girl rendering-timing/widget-extraction gap — loads real page content but 0 events extracted; appears to have same extraction issue as TAPinto (pinned 2026-07-03)
+- jerseycityconnects.com and jcdowntown.org broken sources — both hard-failed mid-to-late June, jcdowntown still returns 403, jerseycityconnects may be flaky; requires follow-up investigation (pinned 2026-07-03)
