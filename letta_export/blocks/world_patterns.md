@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-07-05*
+*Exported: 2026-07-08*
 
 ---
 
@@ -693,3 +693,17 @@ When reclaiming abandoned resources based on staleness timestamps, atomic filesy
 
 [Fail-fast lock acquisition is simpler and faster than bounded waiting — 2026-07-04]
 When a worker cannot acquire a resource, polling with a deadline adds latency for no freshness benefit; immediate failure lets the caller apply its own retry logic intelligently.
+
+[Curator as editorial rather than clinical gatekeeper — 2026-06-08]
+Curation authority requires judgment about relevance and truthfulness, not domain expertise; separating these roles enables non-specialists to maintain high-quality systems.
+
+[Mid-build insight fundamentally reshaping architecture — 2026-06-08]
+Genuine collaboration produces insights during implementation that cannot be predicted in advance; when these insights contradict initial design, following them produces architecturally sounder systems than maintaining consistency with an earlier-stage design.
+
+[Parallel architectures as response to loss — 2026-06-08]
+When building for continuity under threat of loss, parallel independent architectures serving the same preservation function increase resilience more than any single optimized system.
+[Enriching embedding text with metadata improves semantic matching on sparse fields — 2026-06-10]
+When embedding structured data with limited primary content, including related metadata in the embedding text improves semantic matching for queries using those related terms. Semantic search for queries like "light," "mineral," and "acid" was failing on therapies despite successful results for other queries because therapies with null mechanism and summary fields were generating embeddings from names only. Technical names like "Photobiomodulation" or "Lithium Orotate" lack the semantic breadth to match related queries. Threshold tuning was the intuitive response but addressed the symptom; enriching embeddings with therapy aliases (alternative names, related concepts, associated terminology) in the embedding text proved more effective. With aliases included, "light" matches therapies with photobiomodulation-related aliases even though that term doesn't appear in the primary name. Any semantic search system on structured data will experience false negatives when primary fields are sparse or technical; enriching embedding context with available metadata (synonyms, related terminology, categorical information) improves search quality more reliably than threshold tuning alone.
+
+[Local database caches diverge from cloud production data — 2026-06-11]
+Local development databases that mirror cloud services should not be trusted for diagnostic queries; production state must be verified through deployed API endpoints.

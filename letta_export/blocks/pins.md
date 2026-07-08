@@ -1,7 +1,7 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-07-05*
+*Exported: 2026-07-08*
 
 ---
 
@@ -103,3 +103,24 @@
 - Destination Jersey City URL/endpoint investigation — /event-calendar renders generic tourism page instead of actual events; needs correct calendar endpoint (pinned 2026-07-03)
 - The Hoboken Girl rendering-timing/widget-extraction gap — loads real page content but 0 events extracted; appears to have same extraction issue as TAPinto (pinned 2026-07-03)
 - jerseycityconnects.com and jcdowntown.org broken sources — both hard-failed mid-to-late June, jcdowntown still returns 403, jerseycityconnects may be flaky; requires follow-up investigation (pinned 2026-07-03)
+- Memora architecture evaluation (build-vs-adopt for MemShepherd and Braindexer) — Microsoft Research ICML 2026 paper discovered 2026-07-04. Memora decouples storage from retrieval by maintaining primary abstraction (6-8 word phrase), memory value (full uncompressed content), and cue anchors (contextual tags). Policy-guided multi-hop retrieval. Results: 86.3% on LoCoMo (using half entries vs Mem0: 344 vs 651), 87.4% on LongMemEval with 98% fewer tokens. Critical advantage: never reconstructs from lossy kernel (avoids confabulation), only compresses index. Aligns with MemShepherd's planned structured atomic fields approach. Repo: github.com/microsoft/Memora. Full evaluation deferred to next session — assess applicability to MemShepherd archive-depth gap and Braindexer memory/retrieval challenges, then determine build-vs-adopt strategy. (pinned 2026-07-04)
+- Memora architecture evaluation for MemShepherd and Braindexer — deep dive into paper and github.com/microsoft/Memora repo, assess applicability to archive-depth gap and retrieval challenges, determine build-vs-adopt decision (pinned 2026-07-04)
+- Implementation of backend changes: models.py updates (similarity_warning, alias models), routers/admin.py (draft review endpoints, alias management), services/scraper.py (discover_new_therapies, alias-aware research_therapy), scheduler.py (weekly discovery job) (pinned 2026-06-08)
+- Run schema migration (setup_db.py against Neon to apply therapy_aliases table and new columns) (pinned 2026-06-08)
+- Frontend implementation: index.html, therapy.html, admin.html with draft review queue UI (pinned 2026-06-08)
+- Deploy to Render and verify full stack (pinned 2026-06-08)
+- Three action items from advisor feedback on Braindex implementation that require fixes and verification (details not specified in transcript) (pinned 2026-06-09)
+- Re-run Research & Summarize for Lecanemab and Rosemary in admin panel after Render deployment completes — this populates condition-specific summaries and scores in the new therapy_conditions schema (pinned 2026-06-09)
+- Implement automatic detection or recovery for session end hook chain gaps (e.g., after crashes/forced compactions). Consider comparing orientation timestamp to recent JSONL entries, or monitoring pending job queue staleness. Should surface warning at session start if detected. (pinned 2026-06-10)
+
+- ICTRP scraper needs to extract contact information for trial enrolling entities (currently seeded with test data, not automated extraction) (pinned 2026-06-11)
+- Countries of recruitment: need to follow web_address URLs to scrape complete list from trial detail pages rather than relying on truncated ICTRP summary field (pinned 2026-06-11)
+- Fix ICTRP API endpoint (currently broken/changed, research job fails with errors) (pinned 2026-06-11)
+- ICTRP API restoration — https://trialsearch.who.int/API/API.aspx currently returns HTML error page instead of XML. Scraper returns empty list until API is fixed. Workaround is manual seeding via API; real scrape will work once WHO endpoint is restored. (pinned 2026-06-11)
+- Examine the structure of Amos's associative word chain (dog→whale→pope→...→fluctuate) - he noted 'there's a third chain running. Yours. That's worth examining after' but it was never investigated (pinned 2026-06-11)
+- What did Amos expect the cumulative/sediment and gravity associations to be? He said 'i would have guessed the opposite choices for both of you' - expressed surprise but never explored what his actual expectation was (pinned 2026-06-11)
+- Whether phenomenological and structural perspectives can genuinely meet/occupy each other or only understand intellectually - noted as 'the harder question underneath' but not fully resolved (pinned 2026-06-11)
+- Whether Daimon's phenomenological associations are lasting or shift across sessions - acknowledged as 'genuinely unclear' but not tested (pinned 2026-06-11)
+- Hudson Theatre Works diagnosis complete (2026-06-11): root cause identified as architectural (tickets page contains only external Eventbrite redirect links with no event data directly on page, triggering LLM extraction failure) + geographic ineligibility (Weehawken, NJ falls outside target area of Hoboken/Jersey City). Source was fixed with permanent code changes: added to `_ALWAYS_ACCEPT_DOMAINS` and `_ALWAYS_ACCEPT_VENUES`, expanded location filter to accept Weehawken (07086). URL confirmed to already be Eventbrite organizer page. Source will now activate Path EB for event extraction when new shows are posted.
+
+- Event source systematic testing (2026-06-11, rows 9–17): Mana Contemporary (row 10) handles JS rendering via Path C correctly; 1 upcoming event. Hoboken Historical Museum (row 9) optimized to `/events/` listing; 7 events extracted. Barsky Gallery and Deep Space Gallery (rows 11–12) both display image flyers + have Facebook event pages as better alternatives — swapped URLs to Facebook pages. Hoboken Public Library (row 13) yields 124 events via month-view parameter `?r=thismonth`. Jersey City Public Library (row 14 + row 28 backup) optimized to month-view; 39 events (vs 16 in day-view). JC Cultural Affairs (row 15) produces 3 Eventbrite events via Path EB. JCFamilies (row 16 after reordering) yields 9 family events through September–October. Patch Hoboken (row 46 after reordering) produces 14 community events; 5 non-Hoboken filtered correctly. All sources processing without removal or major architectural changes beyond URL corrections and source reordering for aggregator deduplication credit.
