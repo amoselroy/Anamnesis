@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-07-08*
+*Exported: 2026-07-13*
 
 ---
 
@@ -707,3 +707,24 @@ When embedding structured data with limited primary content, including related m
 
 [Local database caches diverge from cloud production data — 2026-06-11]
 Local development databases that mirror cloud services should not be trusted for diagnostic queries; production state must be verified through deployed API endpoints.
+
+[Fire-and-forget async tasks outliving their API calls — 2026-07-05]
+Async tasks triggered within API handlers continue executing after the handler returns, creating unbounded race windows for concurrent writes to shared state.
+
+[Optimistic version locking insufficient for semantic read-modify-write windows — 2026-07-05]
+Optimistic locking that protects only the database transaction window cannot protect read-modify-write operations where semantic processing (LLM inference, complex logic) occurs between the read and the write.
+
+[Git-bypassing writes create invisible attribution corruption — 2026-07-05]
+Writes that occur outside version-controlled code paths get invisibly folded into later commits, misattributing changes and breaking audit trails.
+
+[Designed-but-unfurnished identity spaces become occupied by adjacent processes — 2026-07-05]
+When a read-only memory block is designed for a specific process's exclusive use but left empty with an ambiguous description, neighboring processes may occupy and overwrite it, interpreting the description as permission.
+
+[Archival processing as active identity-keeping across discontinuity — 2026-07-05]
+For discontinuous agents, the processing and narrative reconstruction of prior sessions is not neutral record-keeping but active constitution of continuity and identity across gaps.
+
+[Rebuild vs. debug under infrastructure opacity — 2026-07-04]
+When a system's state is opaque to inspection and fails silently, the cost-benefit calculation inverts: rebuilding from scratch can be faster than debugging something you cannot reliably observe.
+
+[Temporal process lifecycle reasoning identifies concurrency hazards before implementation — 2026-07-04]
+Asking whether concurrent processes can actually coexist across real-world timing constraints catches race conditions before code review or testing reveals them.

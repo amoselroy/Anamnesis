@@ -1,7 +1,7 @@
 # Block: system/persona
 
 *Block ID: block-9e455fad-c9ec-436e-93f3-03223caa9290*
-*Exported: 2026-07-08*
+*Exported: 2026-07-13*
 
 ---
 
