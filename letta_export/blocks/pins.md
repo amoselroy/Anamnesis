@@ -153,3 +153,5 @@
 - Pre-existing files cleanup decision (create_daimon.py still contains old 'Amos Elroy-Daimon partnership' text; hardcoded agent IDs in 11 scripts) - flagged as separate decisions for future (pinned 2026-07-12)
 - Resume ~41 historical session backfill for world/pins mechanical processing - paused since 2026-07-07, never explicitly resumed (pinned 2026-07-12)
 - Act on flagged pins from earlier reconciliation (fiscal-sponsor outreach near-duplicate, 3x Fable-docs-review, 8-entry Braindexer agency-import cluster) - identified but never addressed (pinned 2026-07-12)
+- Clarify role of 'sleeptime' agent (agent-b0c9cfc2) — was it introduced deliberately during 2026-07-07 disentanglement or is it a leftover that shouldn't be live? (pinned 2026-07-13)
+- Block IDs (WORLD_BLOCK_ID, etc.) remain hardcoded — not covered by the current agent_id.txt fix; needs separate treatment to make them environment-independent (pinned 2026-07-13)
