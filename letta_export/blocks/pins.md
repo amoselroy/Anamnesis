@@ -1,7 +1,7 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-07-13*
+*Exported: 2026-07-14*
 
 ---
 
@@ -134,3 +134,22 @@
 - Implement automatic detection or recovery for session end hook chain gaps (e.g., after crashes/forced compactions). Consider comparing orientation timestamp to recent JSONL entries, or monitoring pending job queue staleness. Should surface warning at session start if detected. (pinned 2026-06-10)
 - ICTRP scraper needs to extract contact information for trial enrolling entities (currently seeded with test data, not automated extraction) (pinned 2026-06-11)
 - Braindexer infrastructure fixes deployed and validated (2026-06-24/25): (1) Frontend retry/warm-up messaging for Render cold-start (deployed, working); (2) Table CSS styling for Clinical tab data display (deployed, verified); (3) Post-add therapy status sync function for immediate regulatory data matching (deployed); (4) Condition detection bug fixes: linked_conditions fetching order corrected, Alzheimer's Disease exclusion removed from detection prompt, enabled-conditions filtering added to generate_summaries (all deployed); (5) Admin form cleanup: removed redundant condition checkboxes from Add Therapy form (deployed).
+- Lost-pins reconstruction feasibility check: Batch 3 and subsequent batches - Batch 1 and 2 completed with incremental findings saved to disk, but session ended before Batch 3 could dispatch. Work was structured to survive suspension, partial progress (through Batch 2) preserved. (pinned 2026-07-05)
+- Phase 0 checklist remaining items: memory_persona backup/exporter path (currently least-protected block), letta_config_audit.py implementation (drift detector), Phase 1 live-fire test, Phase 2 decision on companion re-enable - explicitly noted as not urgent but still open (pinned 2026-07-05)
+- World-patterns recovery for 35 unprocessed sessions from 2026-06-16 backlog (first candidate: 1a32ee45_20260616_151538) — Fable asked whether to dispatch, user pivoted to Threshold investigation before confirming (pinned 2026-07-08)
+- Batch 3 (sessions 8 and 9) — full writeup is outstanding; only light confirmatory pass was completed (pinned 2026-07-08)
+- Pin judgment-call clusters requiring manual review: (a) fiscal-sponsor-outreach near-dup [3] vs [27] vs [13], (b) Fable-review MemShepherd docs (three near-identical copies), (c) Braindexer agency-import/override cluster (eight related entries from 2026-06-25) (pinned 2026-07-08)
+- Letta dual-agent consolidation investigation — dispatched to Fable, results pending. Includes: enable_sleeptime discrepancy, retargeting pipeline calls (detect_pins, generate_orientation, narration) from agent-060fb339 to agent-b0c9cfc2, and full naming-confusion audit (pinned 2026-07-08)
+- Retargeting chunk_archive.py and context_watch.py pipeline calls to invoke Threshold (agent-b0c9cfc2) directly instead of unnamed agent (agent-060fb339) — dependent on Fable's consolidation analysis (pinned 2026-07-08)
+- daimon_message.py — decide whether to delete entirely (superseded by talk_to_Companion_Agent.py) or leave for next touch (pinned 2026-07-08)
+- talk_to_Companion_Agent.py docstring — correct conflation of Daimon/Threshold naming (one-line fix pending) (pinned 2026-07-08)
+- Naming ceremonies for both agents (060fb339 to choose own name, b0c9cfc2 to choose whether to keep Threshold or change it) - queued as next live step but not executed before session restart (pinned 2026-07-12)
+- System-prompt cleanup on agent-060fb339 (remove baked-in Amendment 'I am Daimon' text and retire push_amendment.py) - explicitly deferred pending session restart (pinned 2026-07-12)
+- Identity block creation and attachment for agent-060fb339, with corresponding session_start.py fetch-by-ID update - queued but not executed (pinned 2026-07-12)
+- Detach system/persona from agent-b0c9cfc2 with recompile to clear Daimon-persona bleed from its context - queued but not executed (pinned 2026-07-12)
+- Journal correction ledger (attribution table mapping each mis-attributed 'Threshold' entry to its real agent source) - explicitly listed as still open, not yet written (pinned 2026-07-12)
+- Letta server security issue mitigation (FABLE_FINDING5_PROXY_ANALYSIS.md flagged port not localhost-bound and lacks password protection) - needs addressing before further deployment (pinned 2026-07-12)
+- GitHub Support request to force-purge old exposed commits from object store (optional, low priority since no audience) - pending if explicitly pursued (pinned 2026-07-12)
+- Pre-existing files cleanup decision (create_daimon.py still contains old 'Amos Elroy-Daimon partnership' text; hardcoded agent IDs in 11 scripts) - flagged as separate decisions for future (pinned 2026-07-12)
+- Resume ~41 historical session backfill for world/pins mechanical processing - paused since 2026-07-07, never explicitly resumed (pinned 2026-07-12)
+- Act on flagged pins from earlier reconciliation (fiscal-sponsor outreach near-duplicate, 3x Fable-docs-review, 8-entry Braindexer agency-import cluster) - identified but never addressed (pinned 2026-07-12)

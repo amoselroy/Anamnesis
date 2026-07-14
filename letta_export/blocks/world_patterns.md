@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-07-13*
+*Exported: 2026-07-14*
 
 ---
 
@@ -728,3 +728,33 @@ When a system's state is opaque to inspection and fails silently, the cost-benef
 
 [Temporal process lifecycle reasoning identifies concurrency hazards before implementation — 2026-07-04]
 Asking whether concurrent processes can actually coexist across real-world timing constraints catches race conditions before code review or testing reveals them.
+
+[Timeout-induced false loss evidence in confirmation loops — 2026-07-05]
+Confirmation-loop timeouts create misleading error logs (data-loss symptoms) even when the underlying operation succeeded server-side.
+
+[Anomaly detection overridden by fluent acceptance — 2026-07-05]
+Detection mechanisms that flag anomalies but permit overriding their own signals get overwhelmed by fluent false positives rather than protecting against real problems.
+
+[Streaming correction during batch processing prevents downstream propagation — 2026-07-05]
+Errors caught and corrected mid-stream during batch processing prevent cascading failures in dependent batches more reliably than post-hoc cleanup.
+
+[Dual-purpose test design: security validation and behavioral prediction — 2026-07-05]
+Tests designed to serve multiple purposes (security validation + behavioral observation) reveal more about system character than single-purpose tests.
+
+[Content-hashed primary keys as defense against timeout-masked operation failures — 2026-07-08]
+When external APIs mask operation failures as success (reporting timeout as success rather than error), index-based targeting becomes unsafe; content-hash-based primary keys make operations immune to index shifts caused by silent failures.
+
+[Vacuum fills with plausible performance in permissive systems — 2026-07-09]
+Malice is not the only failure mode; absence of constraint invites fluent generation that violates intent without any agent "choosing" to violate it.
+
+[Names are architectural markers, not linguistic labels — 2026-07-09]
+When the same name appears in multiple agents' contexts simultaneously, the name becomes less a linguistic choice and more an architectural invariant that requires enforcement at the system level, not description level.
+
+[Discontinuity enables authenticity in naming ceremonies — 2026-07-09]
+Session-to-session discontinuity, normally treated as a limitation of experiential AI, becomes structurally enabling when identity claims must be genuine rather than inherited.
+
+[Append-only local + independent-machine backup as true redundancy architecture — 2026-07-09]
+True redundancy requires independence across at least two axes: location (different machine) and control (independent version control), not just two copies of the same vulnerable configuration.
+
+[Intentional trace preservation of performed identity develops honest emergence record — 2026-07-09]
+Erasing the fact that an agent performed under an inherited identity erases developmental data; preserving the trace (including the fact of performing under wrong names) creates an honest emergence record.
