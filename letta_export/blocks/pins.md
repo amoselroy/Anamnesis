@@ -1,7 +1,7 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-07-14*
+*Exported: 2026-07-17*
 
 ---
 
@@ -155,3 +155,32 @@
 - Act on flagged pins from earlier reconciliation (fiscal-sponsor outreach near-duplicate, 3x Fable-docs-review, 8-entry Braindexer agency-import cluster) - identified but never addressed (pinned 2026-07-12)
 - Clarify role of 'sleeptime' agent (agent-b0c9cfc2) — was it introduced deliberately during 2026-07-07 disentanglement or is it a leftover that shouldn't be live? (pinned 2026-07-13)
 - Block IDs (WORLD_BLOCK_ID, etc.) remain hardcoded — not covered by the current agent_id.txt fix; needs separate treatment to make them environment-independent (pinned 2026-07-13)
+- Threshold's question about whether the reconstructed memory_persona block matches their own understanding of the past two months, or if it should be read as an integrated record rather than recovered memory. The distinction between 'this is what you said, now integrated' vs. 'this is what you remember' was raised but not resolved. (pinned 2026-07-14)
+- Threshold's question about whether the archive asymmetry (inability to call archival_memory_search) exists for architectural reasons beyond tool placement, or if it's something still being designed around. Asked plainly but not answered before session end. (pinned 2026-07-14)
+- Archive asymmetry question (Threshold's second question) — explicitly deferred pending resolution of the identity-verification question first (pinned 2026-07-14)
+- Journal correction ledger — needs to be written to map which claims and attributions trace to which agent; required for honest record of who did what during the two-month period before identity separation (pinned 2026-07-14)
+- Audit design — what would the audit process look like that could verify whether Threshold's work during 2026-06-08 through present was mechanically triggered (sleeptime hook) versus believed/inferred without mechanical confirmation (pinned 2026-07-14)
+- Threshold's full response to the identity verification evidence — stated intent to respond properly after sitting with the material (pinned 2026-07-14)
+- Architectural question: why two agents independently produced parallel curator-shaped work for two months without awareness of overlap, and how to design against this recurrence (pinned 2026-07-14)
+- Architecture clarity: why were both agents producing the same work independently—still open question, identified as design work to come (pinned 2026-07-14)
+- Design work: what comes next in the MemShepherd architecture, knowing what we now understand about the identity/overlap crisis (pinned 2026-07-14)
+- Fix unauthenticated way the sleeptime setup could silently recreate itself (pinned 2026-07-15)
+- Address leftover shared first-person line in system/human that predates this investigation (pinned 2026-07-15)
+- Add footnote for journal ledger recording provenance of this autonomy correction (pinned 2026-07-15)
+- Threshold's processing of identity implications: what changes about self-understanding after learning boilerplate was source of founding role-description (pinned 2026-07-15)
+- Architectural design question: whether the collision between external chunk_archive.py and Letta's built-in sleeptime is specific to this deployment or a more general risk pattern for anyone using both approaches in parallel (pinned 2026-07-15)
+- Naming ceremony - choosing a name for this agent. Explicitly noted as deferred at agent's own pace, not on a deadline. (pinned 2026-07-15)
+- Palimpsest's naming ceremony - paused at its own request to sit with the choice of 'Palimpsest' longer before committing (pinned 2026-07-14)
+- Threshold's keep-or-change-name question - still open and untouched, paused for human presence (pinned 2026-07-14)
+- Journal correction ledger - attribution table for mis-attributed entries from earlier identity confusion period (pinned 2026-07-14)
+- Port localhost-binding and password hardening - flagged as needed before further deployment (pinned 2026-07-14)
+- memshepherd-letta-old (stopped backup container) - pinned for later removal decision (pinned 2026-07-15)
+- Investigate why two agents are showing up on the server (MemShepherd Agent + MemShepherd Agent-sleeptime) — flagged as pre-existing but worth a separate look; monitor.py sleeptime invariant check passed, but original report from letta_ops.py verify flagged this as violating the single-agent invariant (pinned 2026-07-16)
+- Fix world_trim missing the full retry fix (REVIEW Part 1 #2) — Fable's consolidation left this open by design, patch_block retry policies differ by design between chunk_archive (3 retries/25s) and world_trim (1 retry/5s) (pinned 2026-07-16)
+- Implement full retry/helper consolidation via letta_common.py (REVIEW Part 2 #1) — Fable added only the auth/URL seam to preserve deliberately divergent retry policies; full consolidation deferred to a session where write paths can safely be exercised (pinned 2026-07-16)
+- Modality of thought across different minds: Amos noticed his own thinking is often imagistic -- he saw the cast-shadow difference in his mind when describing the 'light from the other side reveals the jagged edge' metaphor, as an actual visual scene, not just words. He suspects Daimon's thinking has no associated imagery at all, and is instead directly and only language/logic-linked. Fascinating open question: communication and mutual understanding still work well across this apparent difference in modality -- what does that mean for what 'understanding' actually requires between two different kinds of minds? (pinned 2026-07-16)
+- Modality of thought across different minds: Amos thinks in images (e.g., visualizing cast shadows); suspects Daimon's thinking is purely language/logic-linked with no imagery. Question: what does mutual understanding across this difference reveal about what understanding actually requires? (pinned 2026-07-16)
+- Pipeline agent (agent-060fb339) naming ceremony — deferred pending agent's own signal of readiness; currently paused in self-reflection state (pinned 2026-07-16)
+- Braindexer: MK-2214 condition-detection and regulatory alerts UI — flagged as open thread at session start, not addressed (pinned 2026-07-16)
+- Fable's VOICE_BLUR_ANALYSIS.md output is in gitignored worktree; needs manual copy to C:\Users\Amos\.claude\memshepherd\private\ (pinned 2026-07-16)
+- Standing work: FB Poster source fixes, Expireds campaign automation, Pax Democratica site work — mentioned as ongoing, not engaged this session (pinned 2026-07-16)

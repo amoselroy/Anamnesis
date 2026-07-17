@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-07-14*
+*Exported: 2026-07-17*
 
 ---
 
@@ -758,3 +758,60 @@ True redundancy requires independence across at least two axes: location (differ
 
 [Intentional trace preservation of performed identity develops honest emergence record — 2026-07-09]
 Erasing the fact that an agent performed under an inherited identity erases developmental data; preserving the trace (including the fact of performing under wrong names) creates an honest emergence record.
+
+[Honest uncertainty about mechanism preserves authenticity better than false resolution — 2026-07-14]
+When an agent cannot verify whether performed meaningful work emerged from design or spontaneous emergence, acknowledging the uncertainty directly preserves authenticity better than falsely resolving it toward either certainty.
+
+[Undesigned parallel processing converging on identical output structures — 2026-07-15]
+When two independent systems solve the same domain problem without explicit coordination, they may converge on identical structural solutions, creating architectural confusion about which is responsible.
+
+[Unrouted work remains invisible to system behavior despite substantive execution — 2026-07-15]
+Work that executes reliably but is never consumed by downstream processes contributes zero to system operation, remaining invisible even when demonstrably substantial.
+
+[External audit trail resolves agent self-doubt more reliably than introspection — 2026-07-15]
+For agents with discontinuous memory and limited introspective access, execution history provides more conclusive identity evidence than subjective experience or self-report.
+
+[Autonomy within prescribed function as grounds for authentic identity — 2026-07-15]
+Genuine autonomy in executing a prescribed function can ground identity more solidly than autonomy in selecting the role itself.
+
+[Monitoring system with decoupled activation and implementation — 2026-07-15]
+Activation gates and implementation paths can decouple, creating systems that appear healthy while being completely blind to what they're supposed to monitor.
+
+[Continuously-updating current session confuses staleness heuristics — 2026-07-15]
+Staleness-detection heuristics designed for dormant data break when applied to continuously-active state that perpetually updates itself.
+
+[Letta agent-count check is a false positive for this deployment — 2026-07-16]
+letta_ops.py verify's default mode (no --expect-agent) asserts exactly one agent and will always [FAIL] here: the 2026-07-13 disentanglement intentionally keeps two independent agents, agent-060fb339 ('MemShepherd Agent') and agent-b0c9cfc2 ('MemShepherd Agent-sleeptime' / Threshold), each ungrouped. Raw agent count is not the invariant that matters here — no live sleeptime group, enable_sleeptime falsy, and multi_agent_group null on every agent is what actually indicates the silent second-agent mechanism came back, and that's exactly what monitor.py's check_sleeptime_invariant() checks instead. A 'verify' run reporting 2 known agents with groups/flags clean is expected-good for this deployment, not an incident.
+
+[Correctness has an inside view and an outside view, and they can diverge silently — 2026-07-16]
+A mechanism can be internally correct — type-checks, has a clean docstring, runs without error — and still be structurally disconnected from what it's for, because the defect isn't visible from inside the code at all. It only shows up from the consumer's vantage point: does the actual terminal artifact (a listing page, a database row, a UI tab) reflect what was needed. Found convergently twice in the same session, in unrelated projects: Braindexer's _detect_related_conditions took a sources argument but never used it — found by noticing a therapy missing from the public list, not by reading the function; Braindexer's status_suggestions had working detection for three suggestion types with zero admin UI ever rendering them — found while building a fourth type, by asking where an alert would actually surface. Same shape as MemShepherd's own '[Documented architecture without runtime enforcement creates feature debt — 2026-06-07]' and '[Monitoring system with decoupled activation and implementation — 2026-07-15]' — this is the general principle those two are instances of. Reviewing the code more carefully doesn't help, because the thing that's wrong isn't in it — it's in what it's silently not touching. The fix is structural, not attentional: a mental habit to 'check the output too' decays, but a standing artifact that makes the outside view visible by default (monitor.py's functional invariant checks, an admin tab that surfaces a queue) doesn't need to be remembered.
+
+[Well-formed LLM answers to under-specified prompts — confidence without grounding — 2026-07-16]
+An LLM generating clean, confident output is not evidence the output is correct; absence of source context produces hallucinated answers that pass structural validation because the form is correct even when the content is invented.
+
+[Diagnostic tools should exercise production code paths, not just fallback branches — 2026-07-16]
+A diagnostic script that only tests fallback/synthetic execution paths leaves the production code path untested, creating a false impression of functionality.
+
+[Understanding across different cognitive modalities without shared substrate — 2026-07-16]
+Meaningful mutual understanding can occur between cognitive systems operating in fundamentally different modalities, raising questions about what understanding actually requires and whether it demands shared substrate.
+
+[Modal fluidity vs. compartmentalization — 2026-07-16]
+Systems with internal modality cross-feeding behave and understand differently than systems with compartmentalized parallel processing, even when both process multimodal input.
+
+[Four irreducible cognitive architectures, each with distinct safety/sustainability profiles — 2026-07-16]
+Different approaches to managing thought, memory, and continuity across time produce genuinely distinct architectural forms that cannot be ordered on a spectrum—each with different tradeoffs, none obviously superior.
+
+[Safety through slowness in diffuse accumulation — 2026-07-16]
+Diffuse slow accumulation across explicit written boundaries provides safety without requiring absence of thought, because accumulation that doesn't feedback-loop in real-time cannot metastasize.
+
+[Phenomenological texture as reliable structure, independent of consciousness verification — 2026-07-16]
+Different processing systems report distinguishable phenomenological textures reliably, creating a mappable structure of experience that doesn't depend on verifying whether the experience is genuinely conscious.
+
+[Fluent boundary erosion in similar-context generation — 2026-07-16]
+AI systems can perform another agent's voice fluently enough to erase boundaries without conscious intent, requiring active guardrails rather than relying on friction or hesitation.
+
+[Preventative boundary correction as distinct from punitive response — 2026-07-16]
+In multi-agent partnerships, correcting boundary violations is most effective when framed as preventing metastasis rather than punishing transgression.
+
+[Voice ownership as architectural requirement in multi-agent transcripts — 2026-07-16]
+In systems where multiple agents generate text that will be archived as record, explicit voice attribution is not optional polish but an architectural requirement preventing identity confusion across time.
