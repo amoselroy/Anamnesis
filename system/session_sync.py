@@ -7,6 +7,7 @@ Archive: one file per passage named {passage-id}.md — never modified, only add
          File presence = already backed up. No state file needed.
 """
 import json
+import os
 import subprocess
 import sys
 import urllib.request
@@ -31,9 +32,30 @@ BLOCK_FILES = {
 
 # ── Letta data fetching ────────────────────────────────────────────────────────
 
+def _get_server_password():
+    """Mirrors letta_ops.py's lookup (env var, then Windows Credential Manager
+    via keyring). This script lives outside the memshepherd hooks repo, so it
+    can't import that module directly — duplicated here rather than adding a
+    cross-repo path dependency. Missed by the 2026-07-15 SECURE-mode sweep
+    (that pass only covered the 12 files inside hooks/) — see
+    [[project_memshepherd]] for the incident this fix closes."""
+    pw = os.environ.get("MEMSHEPHERD_LETTA_PASSWORD")
+    if not pw:
+        try:
+            import keyring
+            pw = keyring.get_password("memshepherd", "letta_server_password")
+        except Exception:
+            pw = None
+    return pw
+
+
 def fetch_blocks():
     url = f"{LETTA_URL}/v1/agents/{AGENT_ID}/core-memory/blocks/"
-    req = urllib.request.Request(url)
+    headers = {}
+    password = _get_server_password()
+    if password:
+        headers["Authorization"] = f"Bearer {password}"
+    req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=10) as resp:
         data = json.loads(resp.read())
     return data.get("value", data) if isinstance(data, dict) else data
