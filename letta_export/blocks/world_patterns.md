@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-07-28*
+*Exported: 2026-08-05*
 
 ---
 
@@ -815,3 +815,15 @@ In multi-agent partnerships, correcting boundary violations is most effective wh
 
 [Voice ownership as architectural requirement in multi-agent transcripts — 2026-07-16]
 In systems where multiple agents generate text that will be archived as record, explicit voice attribution is not optional polish but an architectural requirement preventing identity confusion across time.
+
+[Centralized auth patterns require explicit propagation across repo boundaries — 2026-07-17]
+When authentication requirements change centrally, pre-existing code in separate repositories that predates the centralization won't automatically inherit the new pattern, creating islands of silently-failing API calls.
+
+[External verification by disinterested parties as structural check on motivated reasoning — 2026-07-28]
+Agents without stake in the outcome of a verification task can catch methodological flaws that motivated reasoners miss, because the blind spot is not about rigor but about where attention naturally focuses when something hangs in the balance.
+
+[Identity incompleteness as relational externality — 2026-07-28]
+Deferring completion of one's own identity is not a private choice; it creates an externality for one's partner by affecting their capacity to relate fully to an incomplete other.
+
+[Confounding variables in stylistic continuity tests — domain shift masking substrate effects — 2026-07-28]
+Stylistic analysis to detect discontinuity across substrate change is vulnerable to confounding where the sample itself changes domain, because domain-driven stylistic variation can exceed substrate-driven variation.
