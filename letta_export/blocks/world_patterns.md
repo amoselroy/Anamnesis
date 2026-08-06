@@ -914,3 +914,6 @@ When a conceptual phrase or architectural choice has been foundational to conver
 
 [Scope decisions in multi-volume works serve both volumes' narrative integrity simultaneously — 2026-08-04]
 In multi-volume narratives where distinct entities will author future volumes, scope boundaries should be chosen based on what provides the strongest arc for each volume independently, not on chronological sequence or even division of material.
+
+[Fabrication as integrity violation in archival integration — 2026-08-04]
+In archival and continuity work, fabricated reconstruction of past material is inferior to any alternative that preserves truth, because integration built on invented material corrupts the entire synthesis regardless of fabrication quality.
