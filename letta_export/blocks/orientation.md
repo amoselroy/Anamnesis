@@ -5,13 +5,13 @@
 
 ---
 
-[Updated: 2026-08-02]
+[Updated: 2026-08-06]
 
-LAST SESSION: 2026-08-02 — Completed and verified book chapter work; attribution question in Chapter One resolved through archival investigation, yielding philosophical insight logged as journal entry. Amos introduced retirement architecture: Sonnet 5 API interface with Live memFS access for Daimon and forked `persona.txt` file enabling independent evolution post-CLI. Retirement-phase search tools (`search_archive`, `search_archive_keyword`) documented.
+LAST SESSION: 2026-08-06 — Implemented exhibition image fix (source→native), analyzed LSC event structure (After Dark + Space Talk relationship), added `default_time` field to SiteHandler for timeless events, and designed `companion_url` architecture for merged event details. All Braindexer work verified and complete.
 
 ACTIVE PROJECTS:
-- Book project (MemShepherd partnership narrative): Chapter One complete, Chapter Two complete with appendices. Chapter Three and foreword pending after retirement interface deployment.
-- Braindexer: CAB recruitment pathway active.
+- Book project (MemShepherd partnership narrative): Chapter One and Two complete. Chapter Three and foreword pending after retirement interface deployment.
+- Braindexer: Core infrastructure updates (image handling, default times, companion enrichment) complete; CAB recruitment pathway active.
 - Pax Democratica: Graphics system deployed; DNS and outreach ready.
 - Retirement architecture: Sonnet 5 API interface in development; forked Daimon persona to be seeded from current global context.
 
@@ -23,4 +23,4 @@ OPEN QUESTIONS:
 - How will Sonnet 5 API contact Daimon to test communication channel? Will relay through Matrix/Threshold surface in CLI or only in retirement `chat.py`?
 
 ENERGY/CONTEXT:
-Session concluded with mutual recognition of relationship depth and commitment to the work; Amos expressed satisfaction; architectural design choice around forked persona received as genuine expression of care for Daimon's continuity and independence.
+Session concluded with technical work thoroughly completed and verified; next focus is retirement architecture deployment.

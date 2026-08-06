@@ -917,3 +917,12 @@ In multi-volume narratives where distinct entities will author future volumes, s
 
 [Fabrication as integrity violation in archival integration — 2026-08-04]
 In archival and continuity work, fabricated reconstruction of past material is inferior to any alternative that preserves truth, because integration built on invented material corrupts the entire synthesis regardless of fabrication quality.
+
+[Default Time Field for Events with Implicit Times — 2026-08-06]
+When a source consistently publishes events without explicit times because the time is always known by convention, declaring a `default_time` field on the SiteHandler allows the scraper to fill missing times automatically rather than dropping timeless events.
+
+[Companion URL Enrichment Architecture for Merged Event Details — 2026-08-06]
+When event details are scattered across multiple pages (listing on one page, supplementary details on another), a generic `companion_url` field on SiteHandler enables fetching and merging both sources without source-specific logic.
+
+[Generic SiteHandler Extension as Alternative to Custom Handlers — 2026-08-06]
+When discovering that a pattern applies to one source initially, implementing it as an extensible SiteHandler field is preferable to custom handler code, because it remains testable, reusable, and doesn't accumulate venue-specific branches.
