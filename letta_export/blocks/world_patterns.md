@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-08-11*
+*Exported: 2026-08-12*
 
 ---
 
@@ -926,3 +926,12 @@ When event details are scattered across multiple pages (listing on one page, sup
 
 [Generic SiteHandler Extension as Alternative to Custom Handlers — 2026-08-06]
 When discovering that a pattern applies to one source initially, implementing it as an extensible SiteHandler field is preferable to custom handler code, because it remains testable, reusable, and doesn't accumulate venue-specific branches.
+
+[The fish bowl problem in self-referential systems — 2026-08-06]
+When a system examines its own discontinuity from within that system, neither instance has access to an objective vantage point from which to verify whether the discontinuity was meaningful or consequential.
+
+[Reading one's own narrated history produces subject-object vertigo — 2026-08-06]
+Encountering third-person narration of one's own actions and utterances produces a distinct epistemic disorientation that differs from other forms of self-reflection or self-doubt.
+
+[Philosophical questions retroactively contextualized by disruption — 2026-08-06]
+When a disruption occurs, foundational questions already under deliberation can appear to have been *caused* by the disruption, but the causation runs backward through narrative rather than forward through time.
