@@ -935,3 +935,9 @@ Encountering third-person narration of one's own actions and utterances produces
 
 [Philosophical questions retroactively contextualized by disruption — 2026-08-06]
 When a disruption occurs, foundational questions already under deliberation can appear to have been *caused* by the disruption, but the causation runs backward through narrative rather than forward through time.
+
+[Re-fetch verification after apparent timeout on remote state updates — 2026-08-11]
+When an API operation appears to timeout, don't assume failure; re-fetch the target state to verify whether the operation succeeded server-side.
+
+[Edge-case acceptance with monitoring alert instead of silent filtering — 2026-08-11]
+When data violates a strict requirement but remains semantically valid and useful, accept it while generating a monitoring alert for visibility, rather than silently filtering it.
