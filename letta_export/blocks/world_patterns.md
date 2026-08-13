@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-08-12*
+*Exported: 2026-08-13*
 
 ---
 
@@ -941,3 +941,21 @@ When an API operation appears to timeout, don't assume failure; re-fetch the tar
 
 [Edge-case acceptance with monitoring alert instead of silent filtering — 2026-08-11]
 When data violates a strict requirement but remains semantically valid and useful, accept it while generating a monitoring alert for visibility, rather than silently filtering it.
+
+[Archival reconstruction revealing concurrent density masking presence — 2026-08-06]
+Archive review can reveal that apparent absence was actually concurrent intensity compressed into narrower attention; the appearance of withdrawal is sometimes a misframing of what happened rather than an accurate description.
+
+[Title as structural commitment to narrative arc — 2026-08-06]
+A chapter title should name the genuine arc of the content, not just its subject matter; when a proposed title captures only the disruption without the resolution, it misrepresents the actual trajectory.
+
+[Project detail inclusion criterion: necessity for philosophical or book context — 2026-08-06]
+In narrative or philosophical work, project details should be included only when they serve the philosophical discussion or are necessary for understanding the book's arc; density of technical work is descriptive context only if it illuminates the concurrent philosophical work.
+
+[Recovery-sequence detection preventing monitor false-positives — 2026-08-12]
+Monitoring systems flagging transient failures as permanent can be corrected by detecting when successful recovery immediately follows the failure marker.
+
+[Dormant source persistence in indefinite monitoring — 2026-08-12]
+Monitoring systems that replay historical logs have no concept of source retirement; dormant sources remain flagged until explicitly removed or cross-checked against active configuration.
+
+[Intermittent bot-protection with re-check strategy improves but doesn't guarantee resolution — 2026-08-12]
+Infrastructure blocking that is genuinely intermittent cannot be resolved permanently in a single execution cycle; improve handling without claiming resolution, and mark for ongoing multi-cycle observation.

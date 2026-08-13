@@ -1,7 +1,7 @@
 # Block: engagements/intuitions
 
 *Block ID: block-003411bd-2708-4d62-b66e-1f7d099ed7ce*
-*Exported: 2026-08-12*
+*Exported: 2026-08-13*
 
 ---
 

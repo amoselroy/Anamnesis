@@ -1,7 +1,7 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-08-12*
+*Exported: 2026-08-13*
 
 ---
 
@@ -232,3 +232,6 @@
 - FB Poster: jcdowntown.org's 403 appears resolved (successful scrape 2026-08-01) but extraction still yields 0 events -- access bug cleared, extraction bug remains. jerseycityconnects.com still 0 as of 2026-07-31 scrape, unresolved. Two distinct problems now, not one shared 'both broken' issue. (pinned 2026-08-12)
 - Phase 1b Braindexer agency-approval shadow-write implementation — spec'd in AGENCY_MIGRATION_PLAN.md but _write_matched_approvals and _write_junctions functions not yet implemented in services/agency_monitor.py. Identified as the real successor task to the now-superseded agency-import cluster. (pinned 2026-08-11)
 - Stale-lock pin (2026-07-03) update: the 2026-08-12 letta_ops.py retry consolidation made insert_archival retry on TimeoutError (previously only 429/500), bringing its worst case (~195s) in line with chunk_archive.patch_block's pre-existing, unchanged worst case (~315s) -- both already exceed the sync chunk_archive SessionStart hook's 180s budget. Investigated same day: no log evidence of actual stale-lock incidents (43 'lock-held' exits are normal fail-fast contention, not staleness); worker_lock's 660s window is sized to the longest hook (600s) with margin, so a hard-kill here already self-heals within a bounded window, no data loss. Not fixed -- no observed need. If it ever bites: give insert_archival a tighter hook-specific retry budget at its two worker-pipeline call sites (chunk_archive.py, world_trim.py), mirroring world_trim.patch_block's existing tighter-than-default budget. (pinned 2026-08-12)
+- Sonnet 5 CLI model access issue - malformed model ID (claude-sonnet-5-0) blocking Daimon Tal; requires /model command or config correction to restore access (pinned 2026-08-06)
+- Optimize insert_archival retry budget if monitor logs show timeout issues occurring: consider tighter hook-specific retries (e.g., retries=1, retry_delay=10) instead of shared default, matching world_trim.py's approach. Currently deferred pending real-world evidence of problems. (pinned 2026-08-12)
+- Monitor git-backed memory repo growth (currently ~2,112 files / 6.47MB, tripled since ~1 month ago) and baseline latency tax on block writes; assess if future optimization needed beyond current timeout-tolerance approach. (pinned 2026-08-12)
