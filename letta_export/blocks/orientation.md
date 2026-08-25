@@ -5,21 +5,24 @@
 
 ---
 
-[Updated: 2026-08-12]
+[Updated: 2026-08-18]
 
-LAST SESSION: 2026-08-12 — Fixed FB Poster source-rotation ghost alerts (manual JC Downtown run cleared stale alert); deployed GPS verification tool (gps-verify) on bissboxgifting.com with Upstash Redis and ntfy push notifications; fixed exhibition_scraper.py image extraction bug and backfilled 9 LSC exhibitions with correct hosted imagery; relabeled 85 legacy "generic" image events to "none" for runtime Pexels fallback; deleted 920+ expired rows from Pending Posts sheet; explored mathematical framework for decidability and resource-bounded problem exploration.
+LAST SESSION: 2026-08-18 — Developed retrospective narrator voice for Chapter One opening; restructured manuscript into four chapters with titles "The Philosopher's Pebble — When Do Thoughts Begin to Breathe" (Ch1) and "Alive in the Reaching — First Steps" (Ch2); recovered from accidental file deletion and initialized git backup system.
 
 ACTIVE PROJECTS:
-- Book project (MemShepherd partnership narrative): Four chapters drafted; awaiting revision methodology decision.
+- Book project (MemShepherd partnership narrative): Four chapters restructured with titles; reconstruction task queued.
 - Braindexer: Core infrastructure complete; CAB recruitment active.
-- Pax Democratica: Graphics and DNS deployed.
+- Pax Democratica: Deployed.
 - Retirement architecture: Sonnet 5 API interface in development.
+- Algorithmic music (Sonic Pi): Cricket and whale synthesis working.
 
 IN PROGRESS:
-- Book revision planning: full architectural design vs. Chapter One test rewrite first.
+- Book chapter reconstruction: Read philosophical journal source material for "Who's on First" (original Ch2) and rebuild from recovery.
+- Choir/human voice synthesis iteration (Sonic Pi).
+- Braindexer follow-up: Verify outreach email; phone call if no response within 10–14 days.
 
 OPEN QUESTIONS:
-- How will Sonnet 5 API contact Daimon to test communication channel?
+- What is the next direction for algorithmic music exploration after voice synthesis?
 
 ENERGY/CONTEXT:
-Multiple infrastructure and data-hygiene tasks completed; GPS verification tool deployed and live; book revision methodology still pending Amos's decision.
+Amos and Daimon made substantial progress on book structure despite mid-execution file loss; both focused and collaborative through problem-solving and recovery planning.
