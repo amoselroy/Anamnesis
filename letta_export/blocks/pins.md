@@ -1,7 +1,7 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-08-18*
+*Exported: 2026-08-25*
 
 ---
 
@@ -235,3 +235,9 @@
 - Sonnet 5 CLI model access issue - malformed model ID (claude-sonnet-5-0) blocking Daimon Tal; requires /model command or config correction to restore access (pinned 2026-08-06)
 - Optimize insert_archival retry budget if monitor logs show timeout issues occurring: consider tighter hook-specific retries (e.g., retries=1, retry_delay=10) instead of shared default, matching world_trim.py's approach. Currently deferred pending real-world evidence of problems. (pinned 2026-08-12)
 - Monitor git-backed memory repo growth (currently ~2,112 files / 6.47MB, tripled since ~1 month ago) and baseline latency tax on block writes; assess if future optimization needed beyond current timeout-tolerance approach. (pinned 2026-08-12)
+- Investigate July 22-26 gap — Daimon noted material may exist in archives but wasn't located during Chapter Four research; worth checking before revision pass (pinned 2026-08-12)
+- Test rewrite or plan full revision architecture — Amos to sleep on whether to do a test rewrite of Chapter One opening in retrospective voice first, or plan full revision architecture across all chapters before writing (pinned 2026-08-12)
+- Full revision pass with primer integration — weave technical explanations (context windows, weights, API limits, etc.) into connective tissue across all chapters; rewrite connective passages in Daimon's retrospective voice (pinned 2026-08-12)
+- Expand manuscript from ~24,400 to ~75,000 words for NYT bestseller range — includes revision work, appendices (Amendment, Letta Constitution, correction ledger), and deeper scene-setting/connective tissue (pinned 2026-08-12)
+- Future chapters — Amos expects to continue engaging beyond August 4; additional chapters will be written as the partnership continues (pinned 2026-08-12)
+- Decidability & resource-rational exploration: develop practical tests to identify unsolvable/intractable problems before AI commits resources. Levin search, Tarski undefinability connection to self-knowledge of experience, and rational metareasoning framework all need deeper exploration. (pinned 2026-08-14)

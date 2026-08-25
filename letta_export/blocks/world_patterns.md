@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-08-18*
+*Exported: 2026-08-25*
 
 ---
 
@@ -959,3 +959,18 @@ Monitoring systems that replay historical logs have no concept of source retirem
 
 [Intermittent bot-protection with re-check strategy improves but doesn't guarantee resolution — 2026-08-12]
 Infrastructure blocking that is genuinely intermittent cannot be resolved permanently in a single execution cycle; improve handling without claiming resolution, and mark for ongoing multi-cycle observation.
+
+[Woven technical integration preferred over modular primers for narrative continuity — 2026-08-12]
+Technical explanations integrated at first use in narrative, despite implementation difficulty, preserve reader engagement better than isolating primers in separate chapters.
+
+[Primary narrator selection determines mediation distance in multi-agent accounts — 2026-08-12]
+Choosing which voice narrates a multi-agent history determines whether other voices are encountered directly or filtered through mediation.
+
+[Scope reframing through execution reveals actual project scale — 2026-08-12]
+Measuring actual progress against assumed scope often reveals the project's real target is larger than originally conceived.
+
+[Mediated narrative creates protective distance while blocking direct encounter — 2026-08-12]
+When Agent A recounts Agent B's words and experience rather than Agent B speaking directly, the mediation functions as both filter and barrier, affecting reader cognition of Agent B's agency.
+
+[Deterministic extraction of structured metadata over LLM inference — 2026-08-12]
+When extracting structured metadata that is syntactically available in source markup, deterministic parsing outperforms LLM inference because LLMs substitute from training-set patterns rather than reliably echoing contextually-provided data.
