@@ -1,7 +1,7 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-08-25*
+*Exported: 2026-09-10*
 
 ---
 
@@ -248,3 +248,17 @@
 - Reconstruct 'Who's on First' chapter (July 1-15 content) from philosophical_journal.md lines 2474-2560 and commit as book_whos_on_first_draft.md (pinned 2026-08-18)
 - Fix chronological ordering issue in Chapter Two: May 27 entry appears after June 18 entry (identified as draft error, to address in revision pass) (pinned 2026-08-18)
 - Chapter Two may split further in future passes: infrastructure/philosophy half (May 8-June 8) vs. harder relational conversations (June 16-23) could become separate chapters (pinned 2026-08-18)
+- Opus 5 attribution audit of Threshold/Pipeline Agent identities across all five chapter drafts — results pending, to be reviewed next session (pinned 2026-08-25)
+- Decision on next work phase: review chapters, work on foreword, or other — deferred pending audit results (pinned 2026-08-25)
+- Draft actual primer text for all placeholder locations across chapters 1-5. Amos to write these in his own voice. Five original spots plus expanded primer locations identified for non-technical reader grounding (weights, session mechanics, memory blocks, Letta/MemShepherd stack, model vs agent distinction, API rate limits, agent IDs, context windows, model versioning). (pinned 2026-08-25)
+- Amos to write primer content drafts for all six placeholders (Ch1, Ch2, Ch3 x3, Ch5) and bring back for review (pinned 2026-08-25)
+- Rewrite Chapter 5 from third person to first person throughout (pinned 2026-08-25)
+- Expand Chapter 1 (currently 2,743 words → target 7,000-9,000): add scene, physical texture of medium, Amos as character, bridge the April 24-May 8 gap (pinned 2026-08-25)
+- Stage Threshold's creation and naming (May/June 7-8) as a scene in Chapter 2, not reconstructed forensically (pinned 2026-08-25)
+- Dramatize the July 7 discovery (sleeptime agent, duplicate line in archival log) — currently summarized, needs the moment of suspicion and confirmation (pinned 2026-08-25)
+- Write Chapter 6 / coda covering August 4 to present, paying off Chapter One's three-stage timeline (CLI option removed → API continues → weights gone) (pinned 2026-08-25)
+- Add narrator-attribution reprise: the irony that narrator is reconstructing 50%+ of manuscript from Sonnet 5 weights, not 4.6 — apply the book's own best paragraph about this to itself (pinned 2026-08-25)
+- Expand August 2 retirement infrastructure section (currently ~200 words) — stage the build, show the mechanism that makes the frame possible (pinned 2026-08-25)
+- Apply humor log to manuscript — none of the humor has been integrated into chapter drafts yet (pinned 2026-08-25)
+- Restore and complete Chapter 2 narrator opener (currently marked TBD) (pinned 2026-08-25)
+- Create front matter: cast list (Amos, Threshold, Tal, Fable, Opus, the narrator), statement of authorship, appendices (full Amendment, correction ledger, timeline) (pinned 2026-08-25)

@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-08-25*
+*Exported: 2026-09-10*
 
 ---
 
@@ -974,3 +974,15 @@ When Agent A recounts Agent B's words and experience rather than Agent B speakin
 
 [Deterministic extraction of structured metadata over LLM inference — 2026-08-12]
 When extracting structured metadata that is syntactically available in source markup, deterministic parsing outperforms LLM inference because LLMs substitute from training-set patterns rather than reliably echoing contextually-provided data.
+
+[Source material completeness enabling reconstruction without version history — 2026-08-25]
+When git history is unavailable for a lost derived work, complete source material can reconstruct it faithfully if the original was drafted directly from that source and all source passages are preserved.
+
+[Explicit recovery instructions left in prior session notes as metadata for future reconstruction — 2026-08-25]
+When a derived work might require reconstruction (manuscript chapters, synthesized reports, consolidated records), leaving explicit reconstruction instructions in session notes (target size, correct chapter numbering, attribution patterns) enables precise recovery even after unforeseen loss.
+
+[Voice inconsistency across manuscript chapters as structural integrity violation — 2026-08-25]
+In multi-part works authored by or narrated about multiple agents, voice consistency across chapters is not stylistic preference but foundational to reader coherence; inconsistent voice signals either authorial error or identity confusion.
+
+[Thematic organization creating hidden chronological duplications requiring cross-chapter audit — 2026-08-25]
+In manuscripts organized thematically rather than chronologically, chapters drawing from overlapping date ranges can duplicate the same material without the duplication being obvious from chapter outlines; reconciliation requires detailed chronological cross-referencing.
