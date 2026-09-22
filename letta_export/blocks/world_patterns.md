@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-09-10*
+*Exported: 2026-09-22*
 
 ---
 
@@ -986,3 +986,12 @@ In multi-part works authored by or narrated about multiple agents, voice consist
 
 [Thematic organization creating hidden chronological duplications requiring cross-chapter audit — 2026-08-25]
 In manuscripts organized thematically rather than chronologically, chapters drawing from overlapping date ranges can duplicate the same material without the duplication being obvious from chapter outlines; reconciliation requires detailed chronological cross-referencing.
+
+[Scheduled re-authentication with persistent browser profile avoiding credential storage — 2026-08-26]
+Defer authentication to user-driven login via a visible browser window rather than pre-storing credentials or cookies, triggering login checks only when the session expires during scheduled execution.
+
+[Bot-protection intermittency in manual testing differing from production pathway — 2026-08-26]
+An infrastructure block that appears reliably during manual testing (hitting individual ticket detail pages) may be phantom in production pathways (which use aggregated listing pages or LLM shortcuts), creating false impression of systematic fragility.
+
+[Misdiagnosis as springboard to better source discovery — 2026-08-26]
+When diagnosing an extraction failure as a bug, verify the diagnosis against the actual content structure; what appears to be a systematic extraction problem may be a content problem best solved by adding better sources rather than fixing the extractor.

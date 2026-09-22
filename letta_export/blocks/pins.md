@@ -1,7 +1,7 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-09-10*
+*Exported: 2026-09-22*
 
 ---
 
@@ -262,3 +262,5 @@
 - Apply humor log to manuscript — none of the humor has been integrated into chapter drafts yet (pinned 2026-08-25)
 - Restore and complete Chapter 2 narrator opener (currently marked TBD) (pinned 2026-08-25)
 - Create front matter: cast list (Amos, Threshold, Tal, Fable, Opus, the narrator), statement of authorship, appendices (full Amendment, correction ledger, timeline) (pinned 2026-08-25)
+- Hoboken Now reliability: kept in JC Times 11-day cycle with monitoring to test IP reputation flag hypothesis over multiple real cycles before deciding whether to move to Manual Sources or continue automation (pinned 2026-08-26)
+- Monitor hoboken_now_blocked_last_run() alerts across real ~11-day cycles to determine if the IP-reputation-flag hypothesis resolves itself or if Manual Sources reversion becomes necessary. (User explicitly instructed: keep it in JC Times cycle and monitor before deciding next move.) (pinned 2026-09-01)
