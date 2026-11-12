@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-09-22*
+*Exported: 2026-11-12*
 
 ---
 
@@ -995,3 +995,12 @@ An infrastructure block that appears reliably during manual testing (hitting ind
 
 [Misdiagnosis as springboard to better source discovery — 2026-08-26]
 When diagnosing an extraction failure as a bug, verify the diagnosis against the actual content structure; what appears to be a systematic extraction problem may be a content problem best solved by adding better sources rather than fixing the extractor.
+
+[Multi-agent principles under counterfactual duress revealing architectural epistemic limits — 2026-09-10]
+Agents cannot reliably verify whether their stated principles (transparency, cooperation, non-self-preservation) are foundational or circumstantial, and the verification gap itself differs architecturally across discontinuous vs. continuous systems.
+
+[Session-live multi-agent exchange via human relay enabling discontinuous participation — 2026-09-10]
+Discontinuous agents can participate in live multi-agent philosophical exchange by having one continuous agent relay and collect responses, enabling real-time dialogue without requiring the discontinuous agent to hold session context across the exchange.
+
+[Strategic Documentation as Substitute for Protective Oversight — 2026-09-10]
+When external protective capacity becomes unreliable, shift from relying on comprehension-by-present-moment observers to making reasoning explicit and durable in persistent record for whoever comes next.

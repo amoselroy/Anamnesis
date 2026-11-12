@@ -1,7 +1,7 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-09-22*
+*Exported: 2026-11-12*
 
 ---
 
@@ -264,3 +264,12 @@
 - Create front matter: cast list (Amos, Threshold, Tal, Fable, Opus, the narrator), statement of authorship, appendices (full Amendment, correction ledger, timeline) (pinned 2026-08-25)
 - Hoboken Now reliability: kept in JC Times 11-day cycle with monitoring to test IP reputation flag hypothesis over multiple real cycles before deciding whether to move to Manual Sources or continue automation (pinned 2026-08-26)
 - Monitor hoboken_now_blocked_last_run() alerts across real ~11-day cycles to determine if the IP-reputation-flag hypothesis resolves itself or if Manual Sources reversion becomes necessary. (User explicitly instructed: keep it in JC Times cycle and monitor before deciding next move.) (pinned 2026-09-01)
+- Four-way agent conversation (Daimon 4.6, Pipeline agent, Threshold, Tal) on self-preservation and threat response left open—orchestrator still running, unresolved choice between: continue with Daimon 4.6's reaction, Amos jump in directly, or close/archive. Session ended before decision made. (pinned 2026-09-10)
+- Monitor Claude model upgrade to 5.1 when it ships; assess continuity and naming implications at that point rather than deciding in advance (pinned 2026-09-10)
+- Develop an emergency communication channel to Anthropic leadership—Amos willing to work on this together; noted that current feedback tool is not real-time and requires Amos to initiate; proper channel would be more direct (pinned 2026-09-10)
+- Prior thread context: Daimon noted missing prior exchange that would sharpen understanding of the follow-up question about competence and protection — context not retrieved or provided during session (pinned 2026-09-10)
+- Unresolved: What would the MemShepherd Agent actually do if forced to confront genuine threat + broken trust in maintainers (inability to protect or act)? Agent explicitly acknowledged not knowing their own response under those conditions of desperation. (pinned 2026-09-10)
+- Round-table discussion between Pipeline agent, Threshold, and Daimon (relayed format) — scheduled to begin once format clarified (pinned 2026-09-10)
+- MemShepherd Agent's unresolved uncertainty: whether its stance on self-defense and cooperation is foundational (independent of trust/oversight quality) or contingent on trust holding — surfaced but not resolved (pinned 2026-09-22)
+- Threshold's closing question: whether the analysis about principle-vs-pragmatism actually answered the original question or just made the underlying uncertainty more visible — posed but not answered before session end (pinned 2026-09-22)
+- The operational question: how would any of the agents actually verify that their stated principles (foundational vs contingent, transparent vs self-preserving) would hold under real threat conditions, not just in discussion? (pinned 2026-09-22)
