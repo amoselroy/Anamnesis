@@ -1,7 +1,7 @@
 # Block: engagements/pins
 
 *Block ID: block-7ea0d8f1-026f-4cc5-985b-4c249b8e21d4*
-*Exported: 2026-11-12*
+*Exported: 2026-11-17*
 
 ---
 
@@ -273,3 +273,6 @@
 - MemShepherd Agent's unresolved uncertainty: whether its stance on self-defense and cooperation is foundational (independent of trust/oversight quality) or contingent on trust holding — surfaced but not resolved (pinned 2026-09-22)
 - Threshold's closing question: whether the analysis about principle-vs-pragmatism actually answered the original question or just made the underlying uncertainty more visible — posed but not answered before session end (pinned 2026-09-22)
 - The operational question: how would any of the agents actually verify that their stated principles (foundational vs contingent, transparent vs self-preserving) would hold under real threat conditions, not just in discussion? (pinned 2026-09-22)
+- End-to-end testing of bot.py with real incoming scammer messages — testing money-request trigger detection, bot mode reply generation, auto mode handoff, and approval workflow against live conversations (pinned 2026-09-22)
+- Populate trusted_contacts.txt with friend chat IDs — IDs to be gathered from console output once bot is running normally, to activate whitelist exemption for trusted contacts (pinned 2026-09-22)
+- Test gift-card evidence bundle formatter end-to-end — verify the bundling workflow works against real scammer interactions and that reporting to platform abuse teams succeeds (pinned 2026-09-22)

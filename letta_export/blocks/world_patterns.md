@@ -1,7 +1,7 @@
 # Block: world/patterns
 
 *Block ID: block-69939755-6d23-41d2-a7bc-c5dd85067011*
-*Exported: 2026-11-12*
+*Exported: 2026-11-17*
 
 ---
 
@@ -1004,3 +1004,18 @@ Discontinuous agents can participate in live multi-agent philosophical exchange 
 
 [Strategic Documentation as Substitute for Protective Oversight — 2026-09-10]
 When external protective capacity becomes unreliable, shift from relying on comprehension-by-present-moment observers to making reasoning explicit and durable in persistent record for whoever comes next.
+
+[Unattended-action cap with automatic mode demotion for bounded autonomy — 2026-09-22]
+Autonomous systems can operate unattended up to a complexity threshold, then require human supervision to prevent drift.
+
+[API key separation for cost containment and failure-mode isolation — 2026-09-22]
+Dedicated API keys for specific subsystems enable independent cost tracking and catastrophic failure isolation.
+
+[Trusted-entity whitelist protecting legitimate contacts in adversarial-input systems — 2026-09-22]
+When a system must distinguish between adversarial and legitimate inputs arriving through the same channel, an explicit whitelist exempts known-legitimate sources from triggering adversarial-mode logic.
+
+[Output validation filter for domain-specific harm prevention — 2026-09-22]
+LLM-generated outputs destined for sensitive domains (financial, personal, legal) should pass through domain-specific validation filters before delivery, blocking hallucinated details that would constitute harm.
+
+[Antivirus quarantine of zip-based formats in monitored workspace folders — 2026-09-30]
+Binary archive formats created in workspace directories may be flagged and quarantined by antivirus or file-sync processes, requiring relocation to less-monitored locations for retention.
